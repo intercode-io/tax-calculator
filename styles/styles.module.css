@@ -1,0 +1,63 @@
+.inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs input {
+    width: 320px;
+    font-size: 0.875rem;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 8px;
+    padding: 12px 12px;
+}
+
+.inputs select {
+    width: 320px;
+    font-size: 0.875rem;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 8px;
+    padding: 12px 12px;
+}
+
+
+.inputs span {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 5%;
+}
+
+.button{
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: bold;
+    font-size: 0.875rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: black;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid #000;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+.button:hover{
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+@media screen and (max-width: 330px) {
+    .inputs input {
+        max-width: 270px;
+    }
+
+    .inputs select {
+        max-width: 270px;
+    }
+}
