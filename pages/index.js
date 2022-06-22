@@ -1,27 +1,13 @@
 import Head from 'next/head'
 import {useState} from "react";
-import style from '../styles/styles.module.css';
+import {Col, InputNumber, Row} from "antd";
+import {useInput} from "../hooks/useInput";
+import yearCoefficient from "../common/year-coefficient"
 
-
-const options = {
-    0: 2.2,
-    1: 1.9,
-    2: 1.65,
-    3: 1.55,
-    4: 1.45,
-    5: 1.35,
-    6: 1,
-    7: 0.9,
-    8: 0.85,
-    9: 0.8,
-    10: 0.75,
-    11: 0.7,
-}
 
 export default function Home() {
-
-    const [yearOfManufacture, setYearOfManufacture] = useState();
-    const [volumeCar, setVolumeCar] = useState();
+    const yearOfManufacture = useInput(0);
+    const volumeCar = useInput(0);
     const [fuelRatio, setFuelRatio] = useState(1);
     const [isExclusiveCar, setIsExclusiveCar] = useState(1);
     const currentYear = new Date().getFullYear();
@@ -29,48 +15,37 @@ export default function Home() {
 
 
     const calculatePrice = () => {
-
-        const coefficient = Number(volumeCar) * Number(fuelRatio) * Number(isExclusiveCar);
-        const ageOfCar = currentYear - yearOfManufacture;
-
+        const coefficient = Number(volumeCar.value) * Number(fuelRatio) * Number(isExclusiveCar);
+        const ageOfCar = currentYear - yearOfManufacture.value;
         let rate = 0.7;
-        if (ageOfCar < 11) rate = options[ageOfCar];
-
+        if (ageOfCar < 11) rate = yearCoefficient[ageOfCar];
         const rateVal = rate * coefficient;
         const akz = Number(rateVal) / 2;
         const PDV = Number(rateVal) * 3.5 * 0.2;
-
-        setFinalPrice(akz + PDV)
-
+        setFinalPrice(akz + PDV);
     }
 
-    const clearForm = () => {
-        setYearOfManufacture('');
-        setVolumeCar('');
-        setFinalPrice('');
-    }
 
     return (
         <>
             <Head>
                 <title>Калькулятор розмитнення</title>
             </Head>
-            <main>
-                <section>
-                    <h1>Калькулятор розмитнення</h1>
-                </section>
-
-                <section>
-                    <div className={style.inputs}>
+            <main style={{alignItems: "center"}}>
+                <Row justify="center" style={{marginBottom: 8}}>
+                    <Col span={8}>
                         <span>Рік випуску{": "}</span>
-                        <input type="number" max={currentYear} min={1800} value={yearOfManufacture}
-                               onChange={(event) => setYearOfManufacture(event.target.value)}/>
-                    </div>
-                    <div className={style.inputs}>
+                        <InputNumber max={currentYear} style={{width: '100%'}} {...yearOfManufacture}/>
+                    </Col>
+                </Row>
+                <Row justify="center" style={{marginBottom: 8}}>
+                    <Col span={8}>
                         <span>Обєм двигуна{": "}</span>
-                        <input type="number" value={volumeCar} onChange={event => setVolumeCar(event.target.value)}/>
-                    </div>
-                    <div className={style.inputs}>
+                        <InputNumber style={{width: '100%'}} {...volumeCar}/>
+                    </Col>
+                </Row>
+                <Row justify="center" style={{marginBottom: 8}}>
+                    <Col span={8}>
                         <span>Тип палива{": "}</span>
                         <select onChange={event => {
                             setFuelRatio(event.target.value);
@@ -79,8 +54,10 @@ export default function Home() {
                             <option value={1.2}>Дизель</option>
                             <option value={0.5}>Гібрид</option>
                         </select>
-                    </div>
-                    <div className={style.inputs}>
+                    </Col>
+                </Row>
+                <Row justify="center" style={{marginBottom: 8}}>
+                    <Col span={8}>
                         <span>Ексклюзивність{": "}</span>
                         <select
                             onChange={event => setIsExclusiveCar(event.target.value)}
@@ -88,15 +65,14 @@ export default function Home() {
                             <option value={1.0}>No</option>
                             <option value={2.0}>Yes</option>
                         </select>
-                    </div>
-                </section>
-                <div>
-                    <button className={style.button} onClick={calculatePrice}>Порахувати</button>
-                    <button className={style.button} onClick={clearForm}>Очистити</button>
-                </div>
-                <div className={style.inputs}>
+                    </Col>
+                </Row>
+                <Row justify="center" style={{marginBottom: 8}}>
+                    <button onClick={calculatePrice}>Порахувати</button>
+                </Row>
+                <Row justify="center" style={{marginBottom: 8}}>
                     <span>Ціна мита : {finalPrice.toFixed(3)} €</span>
-                </div>
+                </Row>
             </main>
         </>
     )
