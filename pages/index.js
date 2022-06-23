@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {useEffect, useState} from "react";
-import {Card, Col, InputNumber, Row} from "antd";
+import {Card, Col, Row, Select, Switch} from "antd";
 import {useInput} from "../hooks/useInput";
 import yearCoefficient from "../common/year-coefficient"
 import style from "../styles/Main.module.css"
@@ -17,22 +17,44 @@ export default function Home() {
     const [rate, setRate] = useState(0.7);
     const [coefficient, setCoefficient] = useState();
     const [ageOfCar, setAgeOfCar] = useState();
+    const [yearArray, setYearArray] = useState([]);
+    const [volumeArray, setVolumeArray] = useState([]);
+    const [excise, setExcise] = useState(0);
+
 
     useEffect(() => {
-        const coefficient = Number(volumeCar.value) * Number(fuelRatio) * Number(isExclusiveCar);
+        let yearCarArray = [];
+        let volumeCarArray = [];
+        for (let year = 1950; year <= currentYear; year++) {
+            yearCarArray.push(year);
+        }
+        for (let volume = 0.1; volume <= 12; volume += 0.1) {
+            volumeCarArray.push(Number(volume.toFixed(1)));
+        }
+        setYearArray(yearCarArray);
+        setVolumeArray(volumeCarArray);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+
+
+    useEffect(() => {
+        let exclusive = isExclusiveCar ? 2 : 1;
+        const coefficient = Number(volumeCar.value * 1000) * Number(fuelRatio) * Number(exclusive);
         setCoefficient(coefficient);
         setAgeOfCar(currentYear - yearOfManufacture.value);
         if (ageOfCar < 12) setRate(yearCoefficient[ageOfCar]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [yearOfManufacture, volumeCar.value, fuelRatio, isExclusiveCar, rate])
 
 
     const calculatePrice = () => {
         const rateVal = rate * coefficient;
         const excise = Number(rateVal) / 2;
+        setExcise(excise);
         const PDV = Number(rateVal) * 3.5 * 0.2;
         setFinalPrice(excise + PDV);
     }
-
 
     return (
         <div>
@@ -42,75 +64,94 @@ export default function Home() {
             <div className={style.firstMainBlock}>
                 <div style={{margin: "2%"}}>
                     <Row justify="center" style={{marginBottom: 20}}>
-                        <Col span={20}>
+                        <Col span={23}>
+                            <CalendarOutlined/>
                             <span className={style.inputText}>Рік випуску{": "}</span>
-                            <InputNumber className={style.inputStyle} min={1900}
-                                         max={currentYear} {...yearOfManufacture}
-                                         prefix={<CalendarOutlined/>}
-                            />
-                            <input type="range"
-                                   className={style.rangeInput}
-                                   min={1900}
-                                   max={currentYear}
-                                   value={yearOfManufacture.value}
-                                   onChange={event => yearOfManufacture.onChange(event.target.value)}
-                            />
+                            <Select
+                                showSearch
+                                style={{width: "100%"}}
+                                placeholder="Search to Select"
+                                optionFilterProp="children"
+                                filterOption={(input, option) =>
+                                    (option.children).includes(input)
+                                }
+                                onChange={(event) => yearOfManufacture.onChange(event)}
+                            >
+                                {yearArray.map((year) => (
+                                    <Select.Option key={year} value={year}>{String(year)}</Select.Option>
+                                ))}
+                            </Select>
                         </Col>
                     </Row>
                     <Row justify="center" style={{marginBottom: 20}}>
-                        <Col span={20}>
+                        <Col span={23}>
+                            <CarOutlined/>
                             <span className={style.inputText}>Обєм двигуна{": "}</span>
-                            <InputNumber className={style.inputStyle}
-                                         {...volumeCar}
-                                         prefix={<CarOutlined/>}
-                            />
-                            <input type="range"
-                                   className={style.rangeInput}
-                                   max={15000}
-                                   value={volumeCar.value}
-                                   onChange={event => volumeCar.onChange(event.target.value)}
-                            />
+                            <Select
+                                showSearch
+                                style={{width: "100%"}}
+                                placeholder="Search to Select"
+                                optionFilterProp="children"
+                                filterOption={(input, option) =>
+                                    (option.children).includes(input)
+                                }
+                                onChange={(event) => volumeCar.onChange(event)}
+                            >
+                                {volumeArray.map((volume) => (
+                                    <Select.Option key={volume} value={volume}>{String(volume)}</Select.Option>
+                                ))}
+                            </Select>
                         </Col>
                     </Row>
-                    <div style={{display: "flex"}}>
-                        <Row justify="center" style={{marginBottom: 20}}>
-                            <Col span={16}>
-                                <span className={style.selectText}><IdcardTwoTone/> Тип палива{": "}</span>
-                                <select className={style.selectStyle} onChange={event => {
-                                    setFuelRatio(event.target.value);
-                                }}>
-                                    <option value={1}>Бензин</option>
-                                    <option value={1.2}>Дизель</option>
-                                    <option value={0.5}>Гібрид</option>
-                                </select>
-                            </Col>
-                        </Row>
-                        <Row justify="center" style={{marginBottom: 20}}>
-                            <Col span={8}>
-                                <span className={style.selectText}> <ToolTwoTone/> Ексклюзивність{": "}</span>
-                                <select className={style.selectStyle}
-                                        onChange={event => setIsExclusiveCar(event.target.value)}
-                                >
-                                    <option value={1.0}>No</option>
-                                    <option value={2.0}>Yes</option>
-                                </select>
-                            </Col>
-                        </Row>
-                    </div>
+                    <Row justify="center" style={{marginBottom: 20}}>
+                        <Col span={24}>
+                            <span className={style.selectText}>
+                                <IdcardTwoTone style={{padding: "5px"}}/>
+                                Тип палива{": "}
+                            </span>
+                            <select className={style.selectStyle} onChange={event => {
+                                setFuelRatio(event.target.value);
+                            }}>
+                                <option value={1}>Бензин</option>
+                                <option value={1.2}>Дизель</option>
+                                <option value={0.5}>Гібрид</option>
+                            </select>
+                        </Col>
+                    </Row>
+                    <Row justify="center" style={{marginBottom: 20}}>
+                        <Col span={24} style={{display: "flex"}}>
+                            <span className={style.selectText} style={{paddingRight: "10px"}}>
+                                <ToolTwoTone style={{padding: "5px"}}/>
+                                Ексклюзивність{": "}
+                            </span>
+                            <Switch defaultChecked onChange={event => setIsExclusiveCar(event)}/>
+                        </Col>
+                    </Row>
                     <Row justify="center" style={{marginTop: 50}}>
-                        <button className={style.button} onClick={calculatePrice}><span>Порахувати</span></button>
+                        <button className={style.button} onClick={calculatePrice}>
+                            <span>Порахувати</span>
+                        </button>
                     </Row>
                 </div>
                 <div>
                     <Row justify="center" style={{marginBottom: 8}}>
                         <Card className={style.cardStyle}>
                             <div>
-                                <h1 style={{color: "cornflowerblue"}}><DollarCircleTwoTone spin={true}/> Фінальна ціна:
+                                <h1 style={{color: "cornflowerblue"}}>
+                                    <DollarCircleTwoTone spin={true}/> Фінальна ціна:
                                 </h1>
                                 <span style={{fontSize: "30px"}}> {finalPrice.toFixed(3)} €</span>
                             </div>
                             <div>
-                                <span>Rate: {rate}</span>
+                                <span style={{paddingRight: "2%"}}>
+                                    Rate: <b style={{color: "black"}}>{rate}</b>
+                                </span>
+                                <span style={{paddingRight: "2%"}}>
+                                    Coefficient: <b style={{color: "black"}}>{coefficient}</b>
+                                </span>
+                                <span style={{paddingRight: "2%"}}>
+                                    Excise: <b style={{color: "black"}}>{excise}</b>
+                                </span>
                             </div>
                         </Card>
                     </Row>
