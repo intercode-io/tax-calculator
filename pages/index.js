@@ -20,6 +20,7 @@ export default function Home() {
     const [yearArray, setYearArray] = useState([]);
     const [volumeArray, setVolumeArray] = useState([]);
     const [excise, setExcise] = useState(0);
+    const [PDV, setPDV] = useState(0);
 
 
     useEffect(() => {
@@ -35,7 +36,6 @@ export default function Home() {
         setVolumeArray(volumeCarArray);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
 
 
     useEffect(() => {
@@ -54,6 +54,7 @@ export default function Home() {
         setExcise(excise);
         const PDV = Number(rateVal) * 3.5 * 0.2;
         setFinalPrice(excise + PDV);
+        setPDV(PDV);
     }
 
     return (
@@ -109,13 +110,20 @@ export default function Home() {
                                 <IdcardTwoTone style={{padding: "5px"}}/>
                                 Тип палива{": "}
                             </span>
-                            <select className={style.selectStyle} onChange={event => {
-                                setFuelRatio(event.target.value);
-                            }}>
-                                <option value={1}>Бензин</option>
-                                <option value={1.2}>Дизель</option>
-                                <option value={0.5}>Гібрид</option>
-                            </select>
+                            <Select
+                                showSearch
+                                style={{width: "100%"}}
+                                placeholder="Search to Select"
+                                optionFilterProp="children"
+                                filterOption={(input, option) =>
+                                    (option.children).includes(input)
+                                }
+                                onChange={(event) => setFuelRatio(event)}
+                            >
+                                <Select.Option value={1}>Бензин</Select.Option>
+                                <Select.Option value={1.2}>Дизель</Select.Option>
+                                <Select.Option value={0.5}>Гібрид</Select.Option>
+                            </Select>
                         </Col>
                     </Row>
                     <Row justify="center" style={{marginBottom: 20}}>
@@ -133,24 +141,24 @@ export default function Home() {
                         </button>
                     </Row>
                 </div>
-                <div>
+                <div style={{display: "flex", justifyContent: "center"}}>
                     <Row justify="center" style={{marginBottom: 8}}>
                         <Card className={style.cardStyle}>
                             <div>
                                 <h1 style={{color: "cornflowerblue"}}>
                                     <DollarCircleTwoTone spin={true}/> Фінальна ціна:
                                 </h1>
+                                <div style={{fontSize: "13px", color: "gray"}}>Фінальна ціна складається з ПДВ та
+                                    Акцизи
+                                </div>
                                 <span style={{fontSize: "30px"}}> {finalPrice.toFixed(3)} €</span>
                             </div>
                             <div>
-                                <span style={{paddingRight: "2%"}}>
-                                    Rate: <b style={{color: "black"}}>{rate}</b>
+                                <span style={{paddingRight: "2%", fontSize: "18px", color: "gray"}}>
+                                    Акциза: <b style={{color: "black"}}>{excise}</b>
                                 </span>
-                                <span style={{paddingRight: "2%"}}>
-                                    Coefficient: <b style={{color: "black"}}>{coefficient}</b>
-                                </span>
-                                <span style={{paddingRight: "2%"}}>
-                                    Excise: <b style={{color: "black"}}>{excise}</b>
+                                <span style={{paddingRight: "2%", color: "gray", fontSize: "18px"}}>
+                                    ПДВ: <b style={{color: "black"}}>{PDV}</b>
                                 </span>
                             </div>
                         </Card>

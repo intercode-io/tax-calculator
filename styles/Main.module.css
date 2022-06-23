@@ -1,9 +1,6 @@
 .firstMainBlock {
     display: flex;
-    justify-content: space-around;
-}
-
-.secondMainBlock {
+    justify-content: center;
 }
 
 
@@ -11,7 +8,7 @@
     color: cornflowerblue;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     padding: 1%;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .inputStyle {
@@ -43,7 +40,7 @@
 
 .selectText {
     color: cornflowerblue;
-    font-size: 12px;
+    font-size: 15px;
     display: flex;
     align-items: center;
 }
@@ -79,6 +76,11 @@
     color: blue;
     min-width: 500px;
     box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
 }
 
 @media screen and (max-width: 768px) {
