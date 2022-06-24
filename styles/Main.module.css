@@ -11,6 +11,9 @@
     font-size: 15px;
     width: 100%;
 }
+.inputStyle{
+    width: 300px;
+}
 
 
 .selectStyle {
@@ -50,20 +53,19 @@
         font-size: 12px;
     }
 
-    .selectText {
-        font-size: 11px;
-    }
-
-
     .cardStyle {
-        min-width: 250px;
+        max-width: 300px;
+        margin: 0 12%;
     }
-}
-
-@media screen  and (max-width: 426px) {
-
+    .cardGridStyle{
+        text-align: center;
+    }
     .mainContentBlockCard {
         flex-direction: column;
     }
+    .inputStyle{
+        width:100%;
+    }
 }
+
 

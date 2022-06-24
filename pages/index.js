@@ -81,7 +81,7 @@ export default function Home() {
                                     </span>
                                     <Select
                                         showSearch
-                                        style={{width: 300}}
+                                        className={style.inputStyle}
                                         placeholder="Search to Select"
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
@@ -101,7 +101,7 @@ export default function Home() {
                             </span>
                                     <Select
                                         showSearch
-                                        style={{width: 300}}
+                                        className={style.inputStyle}
 
                                         placeholder="Search to Select"
                                         optionFilterProp="children"
@@ -122,7 +122,7 @@ export default function Home() {
                             </span>
                                     <Select
                                         showSearch
-                                        style={{width: 300}}
+                                        className={style.inputStyle}
 
                                         placeholder="Search to Select"
                                         optionFilterProp="children"
@@ -134,6 +134,7 @@ export default function Home() {
                                         <Select.Option value={1}>Бензин</Select.Option>
                                         <Select.Option value={1.2}>Дизель</Select.Option>
                                         <Select.Option value={0.5}>Гібрид</Select.Option>
+                                        <Select.Option value={0}>Електро</Select.Option>
                                     </Select>
                                 </Col>
                                 <Col span={19}>
@@ -142,6 +143,13 @@ export default function Home() {
                                 Ексклюзивність{": "}
                                     <Switch defaultChecked={false} onChange={event => setIsExclusiveCar(event)}/>
                                 </span>
+                                </Col>
+                            </Row>
+                            <Row justify="center" style={{marginBottom: 8, maxWidth:"100%"}}>
+                                <Col span={12}>
+                                    <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
+                                        <span>Порахувати</span>
+                                    </Button>
                                 </Col>
                             </Row>
                         </div>
@@ -157,21 +165,16 @@ export default function Home() {
                                     <span style={{fontSize: "30px"}}> {finalPrice.toFixed(1)} €</span>
                                 </Col>
                                 <Col span={24}>
-                                <span style={{paddingRight: "2%", fontSize: "18px", color: "gray"}}>
+                                <span style={{paddingRight: "2%", fontSize: "16px", color: "gray"}}>
                                     Акциз: <b style={{color: "black"}}>{excise.toFixed(1)} €</b>
                                 </span>
-                                    <span style={{paddingRight: "2%", color: "gray", fontSize: "18px"}}>
+                                    <span style={{paddingRight: "2%", color: "gray", fontSize: "16px"}}>
                                     ПДВ: <b style={{color: "black"}}>{PDV.toFixed(1)} €</b>
                                 </span>
                                 </Col>
                             </Row>
                         </div>
                     </div>
-                    <Row justify="center">
-                        <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
-                            <span>Порахувати</span>
-                        </Button>
-                    </Row>
                 </div>
             </div>
         </div>
