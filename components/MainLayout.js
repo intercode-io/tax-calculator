@@ -8,7 +8,7 @@ const MainLayout = ({children}) => {
     return (
         <Layout style={{minHeight: "100vh"}}>
             <CustomHeader/>
-            <Content style={{textAlign: "center"}}>
+            <Content>
                 <main>{children}</main>
             </Content>
         </Layout>
