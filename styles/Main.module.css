@@ -9,6 +9,7 @@
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     padding: 1%;
     font-size: 15px;
+    width: 100%;
 }
 
 .inputStyle {
@@ -42,7 +43,7 @@
     color: cornflowerblue;
     font-size: 15px;
     display: flex;
-    align-items: center;
+    align-items: center
 }
 
 .button {

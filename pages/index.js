@@ -4,7 +4,13 @@ import {Button, Card, Col, Row, Select, Switch} from "antd";
 import {useInput} from "../hooks/useInput";
 import yearCoefficient from "../common/year-coefficient"
 import style from "../styles/Main.module.css"
-import {CalendarOutlined, CarOutlined, DollarCircleTwoTone, IdcardTwoTone, ToolTwoTone} from "@ant-design/icons";
+import {
+    CalendarOutlined,
+    DashboardOutlined,
+    DollarCircleTwoTone,
+    SlidersOutlined,
+    ToolFilled,
+} from "@ant-design/icons";
 
 
 export default function Home() {
@@ -26,7 +32,7 @@ export default function Home() {
     useEffect(() => {
         let yearCarArray = [];
         let volumeCarArray = [];
-        for (let year = 1950; year <= currentYear; year++) {
+        for (let year = currentYear; year >= 1950; year--) {
             yearCarArray.push(year);
         }
         for (let volume = 0.1; volume <= 12; volume += 0.1) {
@@ -65,9 +71,9 @@ export default function Home() {
             <div className={style.firstMainBlock}>
                 <div style={{margin: "2%"}}>
                     <Row justify="center" style={{marginBottom: 20}}>
-                        <Col span={23}>
+                        <Col span={24}>
                             <CalendarOutlined/>
-                            <span className={style.inputText}>Рік випуску{": "}</span>
+                            <span className={style.inputText} style={{textAlign: "center"}}>Рік випуску{": "}</span>
                             <Select
                                 showSearch
                                 style={{width: "100%"}}
@@ -85,8 +91,8 @@ export default function Home() {
                         </Col>
                     </Row>
                     <Row justify="center" style={{marginBottom: 20}}>
-                        <Col span={23}>
-                            <CarOutlined/>
+                        <Col span={24}>
+                            <DashboardOutlined/>
                             <span className={style.inputText}>Обєм двигуна{": "}</span>
                             <Select
                                 showSearch
@@ -107,7 +113,7 @@ export default function Home() {
                     <Row justify="center" style={{marginBottom: 20}}>
                         <Col span={24}>
                             <span className={style.selectText}>
-                                <IdcardTwoTone style={{padding: "5px"}}/>
+                                <SlidersOutlined style={{padding: "5px", color: "black"}}/>
                                 Тип палива{": "}
                             </span>
                             <Select
@@ -127,9 +133,9 @@ export default function Home() {
                         </Col>
                     </Row>
                     <Row justify="center" style={{marginBottom: 20}}>
-                        <Col span={24} style={{display: "flex"}}>
+                        <Col span={24} style={{display: "flex", alignItems: "center"}}>
+                            <ToolFilled style={{padding: "5px"}}/>
                             <span className={style.selectText} style={{paddingRight: "10px"}}>
-                                <ToolTwoTone style={{padding: "5px"}}/>
                                 Ексклюзивність{": "}
                             </span>
                             <Switch defaultChecked onChange={event => setIsExclusiveCar(event)}/>
@@ -155,10 +161,10 @@ export default function Home() {
                             </div>
                             <div>
                                 <span style={{paddingRight: "2%", fontSize: "18px", color: "gray"}}>
-                                    Акциза: <b style={{color: "black"}}>{excise}</b>
+                                    Акциза: <b style={{color: "black"}}>{excise} €</b>
                                 </span>
                                 <span style={{paddingRight: "2%", color: "gray", fontSize: "18px"}}>
-                                    ПДВ: <b style={{color: "black"}}>{PDV}</b>
+                                    ПДВ: <b style={{color: "black"}}>{PDV} €</b>
                                 </span>
                             </div>
                         </Card>
