@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {useEffect, useState} from "react";
-import {Card, Col, Row, Select, Switch} from "antd";
+import {Button, Card, Col, Row, Select, Switch} from "antd";
 import {useInput} from "../hooks/useInput";
 import yearCoefficient from "../common/year-coefficient"
 import style from "../styles/Main.module.css"
@@ -136,9 +136,9 @@ export default function Home() {
                         </Col>
                     </Row>
                     <Row justify="center" style={{marginTop: 50}}>
-                        <button className={style.button} onClick={calculatePrice}>
+                        <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
                             <span>Порахувати</span>
-                        </button>
+                        </Button>
                     </Row>
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
