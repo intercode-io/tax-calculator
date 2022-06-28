@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {useEffect, useState} from "react";
 import {Button, Col, Row, Select, Switch} from "antd";
 import {useInput} from "../hooks/useInput";
@@ -66,12 +65,9 @@ export default function Home() {
 
     return (
         <div>
-            <Head>
-                <title>Калькулятор розмитнення</title>
-            </Head>
             <div style={{display: "flex", justifyContent: "center"}}>
                 <div className={style.cardStyle}>
-                    <div className={style.mainContentBlockCard}>
+                    <section className={style.mainContentBlockCard}>
                         <div className={style.cardGridStyle}>
                             <Row justify="center" style={{marginBottom: 8}}>
                                 <Col span={19} style={{display: "flex", flexDirection: "column"}}>
@@ -145,7 +141,7 @@ export default function Home() {
                                 </span>
                                 </Col>
                             </Row>
-                            <Row justify="center" style={{marginBottom: 8, maxWidth:"100%"}}>
+                            <Row justify="center" style={{marginBottom: 8, maxWidth: "100%"}}>
                                 <Col span={12}>
                                     <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
                                         <span>Порахувати</span>
@@ -174,7 +170,7 @@ export default function Home() {
                                 </Col>
                             </Row>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
