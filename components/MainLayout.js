@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomHeader from "./CustomHeader";
 import {Layout} from "antd";
+import CustomFooter from "./CustomFooter";
 
 const {Content} = Layout;
 
@@ -11,6 +12,7 @@ const MainLayout = ({children}) => {
             <Content>
                 <main>{children}</main>
             </Content>
+            <CustomFooter/>
         </Layout>
     );
 };
