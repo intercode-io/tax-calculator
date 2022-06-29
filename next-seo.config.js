@@ -7,6 +7,7 @@ export default {
         locale: 'en_IE',
         url: 'https://calculator-tax.netlify.app/',
         site_name: 'Tax Calculator',
+
     },
     twitter: {
         handle: '@intercode',
