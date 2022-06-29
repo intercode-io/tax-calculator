@@ -10,7 +10,7 @@ import {
     SlidersTwoTone,
     ToolTwoTone,
 } from "@ant-design/icons";
-
+import Head from "next/head"
 
 export default function Home() {
     const yearOfManufacture = useInput(0);
@@ -64,115 +64,121 @@ export default function Home() {
     }
 
     return (
-        <div>
-            <div style={{display: "flex", justifyContent: "center"}}>
-                <div className={style.cardStyle}>
-                    <section className={style.mainContentBlockCard}>
-                        <div className={style.cardGridStyle}>
-                            <Row justify="center" style={{marginBottom: 8}}>
-                                <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+        <>
+            <Head>
+                <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
+            </Head>
+            <div>
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <div className={style.cardStyle}>
+                        <section className={style.mainContentBlockCard}>
+                            <div className={style.cardGridStyle}>
+                                <Row justify="center" style={{marginBottom: 8}}>
+                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
                                     <span className={style.inputText}>
                                         <CalendarTwoTone className={iconStyle.iconStyle}/>
                                         Рік випуску{": "}
                                     </span>
-                                    <Select
-                                        showSearch
-                                        className={style.inputStyle}
-                                        placeholder="Search to Select"
-                                        optionFilterProp="children"
-                                        filterOption={(input, option) =>
-                                            (option.children).includes(input)
-                                        }
-                                        onChange={(event) => yearOfManufacture.onChange(event)}
-                                    >
-                                        {yearArray.map((year) => (
-                                            <Select.Option key={year} value={year}>{String(year)}</Select.Option>
-                                        ))}
-                                    </Select>
-                                </Col>
-                                <Col span={19} style={{display: "flex", flexDirection: "column"}}>
-                            <span className={style.inputText}>
-                                <DashboardTwoTone className={iconStyle.iconStyle}/>
-                                Обєм двигуна{": "}
-                            </span>
-                                    <Select
-                                        showSearch
-                                        className={style.inputStyle}
+                                        <Select
+                                            showSearch
+                                            className={style.inputStyle}
+                                            placeholder="Search to Select"
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) =>
+                                                (option.children).includes(input)
+                                            }
+                                            onChange={(event) => yearOfManufacture.onChange(event)}
+                                        >
+                                            {yearArray.map((year) => (
+                                                <Select.Option key={year} value={year}>{String(year)}</Select.Option>
+                                            ))}
+                                        </Select>
+                                    </Col>
+                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+                                    <span className={style.inputText}>
+                                        <DashboardTwoTone className={iconStyle.iconStyle}/>
+                                        Обєм двигуна{": "}
+                                    </span>
+                                        <Select
+                                            showSearch
+                                            className={style.inputStyle}
 
-                                        placeholder="Search to Select"
-                                        optionFilterProp="children"
-                                        filterOption={(input, option) =>
-                                            (option.children).includes(input)
-                                        }
-                                        onChange={(event) => volumeCar.onChange(event)}
-                                    >
-                                        {volumeArray.map((volume) => (
-                                            <Select.Option key={volume} value={volume}>{String(volume)}</Select.Option>
-                                        ))}
-                                    </Select>
-                                </Col>
-                                <Col span={19} style={{display: "flex", flexDirection: "column"}}>
-                            <span className={style.inputText}>
-                                <SlidersTwoTone className={iconStyle.iconStyle}/>
-                                Тип палива{": "}
-                            </span>
-                                    <Select
-                                        showSearch
-                                        className={style.inputStyle}
+                                            placeholder="Search to Select"
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) =>
+                                                (option.children).includes(input)
+                                            }
+                                            onChange={(event) => volumeCar.onChange(event)}
+                                        >
+                                            {volumeArray.map((volume) => (
+                                                <Select.Option key={volume}
+                                                               value={volume}>{String(volume)}</Select.Option>
+                                            ))}
+                                        </Select>
+                                    </Col>
+                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+                                    <span className={style.inputText}>
+                                        <SlidersTwoTone className={iconStyle.iconStyle}/>
+                                        Тип палива{": "}
+                                    </span>
+                                        <Select
+                                            showSearch
+                                            className={style.inputStyle}
 
-                                        placeholder="Search to Select"
-                                        optionFilterProp="children"
-                                        filterOption={(input, option) =>
-                                            (option.children).includes(input)
-                                        }
-                                        onChange={(event) => setFuelRatio(event)}
-                                    >
-                                        <Select.Option value={1}>Бензин</Select.Option>
-                                        <Select.Option value={1.2}>Дизель</Select.Option>
-                                        <Select.Option value={0.5}>Гібрид</Select.Option>
-                                        <Select.Option value={0}>Електро</Select.Option>
-                                    </Select>
-                                </Col>
-                                <Col span={19}>
-                                <span className={style.inputText}>
-                                <ToolTwoTone className={iconStyle.iconStyle}/>
-                                Ексклюзивність{": "}
-                                    <Switch defaultChecked={false} onChange={event => setIsExclusiveCar(event)}/>
-                                </span>
-                                </Col>
-                            </Row>
-                            <Row justify="center" style={{marginBottom: 8, maxWidth: "100%"}}>
-                                <Col span={12}>
-                                    <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
-                                        <span>Порахувати</span>
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </div>
-                        <div className={style.cardGridStyle}>
-                            <Row>
-                                <Col>
-                                    <h1 style={{color: "cornflowerblue"}}>
-                                        <DollarCircleTwoTone spin={true}/> Фінальна ціна:
-                                    </h1>
-                                    <div style={{fontSize: "11px", color: "gray"}}>
-                                        Включає ПДВ (податку на додану вартість) та Акцизний податок
-                                    </div>
-                                    <span style={{fontSize: "30px"}}> {finalPrice.toFixed(1)} €</span>
-                                </Col>
-                                <Col span={24}>
-                                <span style={{paddingRight: "2%", fontSize: "16px", color: "gray"}}>
-                                    Акциз: <b style={{color: "black"}}>{excise.toFixed(1)} €</b>
-                                </span>
-                                    <span style={{paddingRight: "2%", color: "gray", fontSize: "16px"}}>
-                                    ПДВ: <b style={{color: "black"}}>{PDV.toFixed(1)} €</b>
-                                </span>
-                                </Col>
-                            </Row>
-                        </div>
-                    </section>
+                                            placeholder="Search to Select"
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) =>
+                                                (option.children).includes(input)
+                                            }
+                                            onChange={(event) => setFuelRatio(event)}
+                                        >
+                                            <Select.Option value={1}>Бензин</Select.Option>
+                                            <Select.Option value={1.2}>Дизель</Select.Option>
+                                            <Select.Option value={0.5}>Гібрид</Select.Option>
+                                            <Select.Option value={0}>Електро</Select.Option>
+                                        </Select>
+                                    </Col>
+                                    <Col span={19}>
+                                    <span className={style.inputText}>
+                                        <ToolTwoTone className={iconStyle.iconStyle}/>
+                                        Ексклюзивність{": "}
+                                        <Switch defaultChecked={false} onChange={event => setIsExclusiveCar(event)}/>
+                                    </span>
+                                    </Col>
+                                </Row>
+                                <Row justify="center" style={{marginBottom: 8, maxWidth: "100%"}}>
+                                    <Col span={12}>
+                                        <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
+                                            <span>Порахувати</span>
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </div>
+                            <div className={style.cardGridStyle}>
+                                <Row>
+                                    <Col>
+                                        <h1 style={{color: "cornflowerblue"}}>
+                                            <DollarCircleTwoTone spin={true}/> Фінальна ціна:
+                                        </h1>
+                                        <div style={{fontSize: "11px", color: "gray"}}>
+                                            Включає ПДВ (податку на додану вартість) та Акцизний податок
+                                        </div>
+                                        <span style={{fontSize: "30px"}}> {finalPrice.toFixed(1)} €</span>
+                                    </Col>
+                                    <Col span={24}>
+                                    <span style={{paddingRight: "2%", fontSize: "16px", color: "gray"}}>
+                                        Акциз: <b style={{color: "black"}}>{excise.toFixed(1)} €</b>
+                                    </span>
+                                        <span style={{paddingRight: "2%", color: "gray", fontSize: "16px"}}>
+                                        ПДВ: <b style={{color: "black"}}>{PDV.toFixed(1)} €</b>
+                                    </span>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
