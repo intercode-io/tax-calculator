@@ -68,6 +68,7 @@ export default function Home() {
             <Head>
                 <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
             </Head>
+
             <div>
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <div className={style.cardStyle}>
