@@ -3,25 +3,32 @@ import MainLayout from "../components/MainLayout";
 
 import {DefaultSeo} from "next-seo";
 import SEO from "../next-seo.config";
-import Script from "next/script";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
+import * as ga from "../lib/ga";
 
 
 function MyApp({Component, pageProps}) {
+    const router = useRouter()
+
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            ga.pageview(url)
+        }
+        //When the component is mounted, subscribe to router changes
+        //and log those page views
+        router.events.on('routeChangeComplete', handleRouteChange)
+
+        // If the component is unmounted, unsubscribe
+        // from the event with the `off` method
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange)
+        }
+    }, [router.events])
     return (
         <>
             <DefaultSeo {...SEO}/>
             <MainLayout>
-                <Script strategy='lazyOnload'
-                        src="https://www.googletagmanager.com/gtag/js?id=G-SWREFLQE88"
-                />
-                <Script id="scripts1" strategy='lazyOnload'>
-                    {`window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-
-                            gtag('config', 'G-SWREFLQE88');
-                    `}
-                </Script>
                 <Component {...pageProps} />
             </MainLayout>
         </>
