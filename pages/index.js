@@ -80,14 +80,14 @@ export default function Home() {
                 <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
                 <script
                     async
-                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-SWREFLQE88`}
                 />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            gtag('config', 'G-SWREFLQE88', {
               page_path: window.location.pathname,
             });
           `,
