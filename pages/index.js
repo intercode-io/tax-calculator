@@ -11,6 +11,8 @@ import {
     ToolTwoTone,
 } from "@ant-design/icons";
 import Head from "next/head"
+import * as ga from "../lib/ga";
+
 
 export default function Home() {
     const yearOfManufacture = useInput(0);
@@ -61,21 +63,62 @@ export default function Home() {
         const PDV = Number(rateVal) * 3.5 * 0.2;
         setFinalPrice(excise + PDV);
         setPDV(PDV);
+        ga.event({
+            action: "click",
+            params: {
+                year_of_manufacture: yearOfManufacture.value,
+                volume_car: volumeCar.value,
+                is_exclusive_car: isExclusiveCar,
+                fuel_ration: fuelRatio,
+            }
+        })
     }
-
+    console.log(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS)
     return (
         <>
             <Head>
                 <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+                    }}
+                />
             </Head>
 
             <div>
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <div className={style.cardStyle}>
+                        <Row style={{
+                            paddingLeft:"8.5%"
+                        }}>
+                            <h3>Калькулятор розмитенення</h3>
+                        </Row>
+                        <Row style={{display: "flex"}}>
+                            <Col span={21} offset={2}>
+                                <p style={{
+                                    fontSize: "10px",
+                                    color: "gray",
+                                }}>
+                                    Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022.
+                                    Формула розмитнення у
+                                    відповідності до правил додатка ДІЯ
+                                </p>
+                            </Col>
+                        </Row>
                         <section className={style.mainContentBlockCard}>
                             <div className={style.cardGridStyle}>
-                                <Row justify="center" style={{marginBottom: 8}}>
-                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+                                <Row justify="center" style={{marginBottom: 25}}>
+                                    <Col span={19} style={{display: "flex", marginBottom: 25, flexDirection: "column"}}>
                                     <span className={style.inputText}>
                                         <CalendarTwoTone className={iconStyle.iconStyle}/>
                                         Рік випуску{": "}
@@ -95,7 +138,7 @@ export default function Home() {
                                             ))}
                                         </Select>
                                     </Col>
-                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+                                    <Col span={19} style={{display: "flex", flexDirection: "column", marginBottom: 25}}>
                                     <span className={style.inputText}>
                                         <DashboardTwoTone className={iconStyle.iconStyle}/>
                                         Обєм двигуна{": "}
@@ -117,7 +160,7 @@ export default function Home() {
                                             ))}
                                         </Select>
                                     </Col>
-                                    <Col span={19} style={{display: "flex", flexDirection: "column"}}>
+                                    <Col span={19} style={{display: "flex", marginBottom: 25, flexDirection: "column"}}>
                                     <span className={style.inputText}>
                                         <SlidersTwoTone className={iconStyle.iconStyle}/>
                                         Тип палива{": "}
@@ -148,7 +191,7 @@ export default function Home() {
                                     </Col>
                                 </Row>
                                 <Row justify="center" style={{marginBottom: 8, maxWidth: "100%"}}>
-                                    <Col span={12}>
+                                    <Col span={11}>
                                         <Button type="primary" style={{borderRadius: "2px"}} onClick={calculatePrice}>
                                             <span>Порахувати</span>
                                         </Button>
