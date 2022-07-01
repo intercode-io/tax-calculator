@@ -78,6 +78,8 @@ export default function Home() {
         <>
             <Head>
                 <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
+                <meta name="keywords"
+                      content="Калькулятор растаможки авто 2020, калькулятор растаможки 2020, калькулятор растаможки авто, калькулятор растаможки, расчет стоимости растаможки, расчет стоимости растаможки автомобиля, растаможка калькулятор, растаможка авто калькулятор, сколько стоит рас"/>
                 <script
                     async
                     src={`https://www.googletagmanager.com/gtag/js?id=G-SWREFLQE88`}
@@ -99,14 +101,14 @@ export default function Home() {
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <div className={style.cardStyle}>
                         <Row style={{
-                            paddingLeft:"8.5%"
+                            paddingLeft: "8.5%"
                         }}>
-                            <h3>Калькулятор розмитенення</h3>
+                            <h3>Калькулятор розмитнення</h3>
                         </Row>
                         <Row style={{display: "flex"}}>
-                            <Col span={21} offset={2}>
+                            <Col style={{paddingLeft: "8.6%"}}>
                                 <p style={{
-                                    fontSize: "10px",
+                                    fontSize: "14px",
                                     color: "gray",
                                 }}>
                                     Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022.
@@ -199,8 +201,8 @@ export default function Home() {
                                 </Row>
                             </div>
                             <div className={style.cardGridStyle}>
-                                <Row>
-                                    <Col>
+                                <Row style={{width: "100%"}}>
+                                    <Col span={24}>
                                         <h1 style={{color: "cornflowerblue"}}>
                                             <DollarCircleTwoTone spin={true}/> Фінальна ціна:
                                         </h1>

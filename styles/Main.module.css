@@ -7,7 +7,6 @@
 
 .inputText {
     color: cornflowerblue;
-    padding: 1%;
     font-size: 15px;
     width: 100%;
 }
@@ -54,7 +53,7 @@
     }
 
     .cardStyle {
-        max-width: 300px;
+        min-width: 95%;
         margin: 0 12%;
     }
     .cardGridStyle{
