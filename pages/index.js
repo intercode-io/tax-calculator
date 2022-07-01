@@ -201,8 +201,8 @@ export default function Home() {
                                 </Row>
                             </div>
                             <div className={style.cardGridStyle}>
-                                <Row>
-                                    <Col>
+                                <Row style={{width: "100%"}}>
+                                    <Col span={24}>
                                         <h1 style={{color: "cornflowerblue"}}>
                                             <DollarCircleTwoTone spin={true}/> Фінальна ціна:
                                         </h1>
