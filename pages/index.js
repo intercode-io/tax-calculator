@@ -55,7 +55,6 @@ export default function Home() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [yearOfManufacture, volumeCar.value, fuelRatio, isExclusiveCar, rate])
 
-
     const calculatePrice = () => {
         const rateVal = rate * coefficient;
         const excise = Number(rateVal) / 2;
@@ -83,23 +82,7 @@ export default function Home() {
                 <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
                 <meta name="keywords"
                       content="Калькулятор растаможки авто 2020, калькулятор растаможки 2020, калькулятор растаможки авто, калькулятор растаможки, растаможка калькулятор, растаможка авто калькулятор, сколько стоит рас"/>
-                <script
-                    async
-                    src={`https://www.googletagmanager.com/gtag/js?id=G-SWREFLQE88`}
-                />
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SWREFLQE88', {
-              page_path: window.location.pathname,
-            });
-          `,
-                    }}
-                />
             </Head>
-
             <div>
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <div className={style.cardStyle}>
