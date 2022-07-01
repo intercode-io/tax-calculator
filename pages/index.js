@@ -73,7 +73,6 @@ export default function Home() {
             }
         })
     }
-    console.log(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS)
     return (
         <>
             <Head>
