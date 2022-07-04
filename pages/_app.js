@@ -25,6 +25,7 @@ function MyApp({Component, pageProps}) {
             router.events.off('routeChangeComplete', handleRouteChange)
         }
     }, [router.events])
+    console.log(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS);
     return (
         <>
             <DefaultSeo {...SEO}/>
