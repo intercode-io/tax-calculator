@@ -79,7 +79,7 @@ export default function Home() {
                 <meta name="description"
                       content={'Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула розмитнення у відповідності до правил додатка ДІЯ' +
                       'розмитнення, закон №7418, розмитнення 2022, розмитнення авто, розмитнення ДІЯ, імпорт авто калькулятор'}/>
-                <meta name="google-site-verification" content="Dh47nVayTmhBWC6DunnANl1p0n8dIjrn0sCmZCawJAo"/>
+                <meta name="google-site-verification" content="_LjWHvblCsANKdhqYPY95TPMlEnA1L5_UBgh59GU1MQ" />
                 <meta name="keywords"
                       content="Калькулятор растаможки авто 2020, калькулятор растаможки 2020, калькулятор растаможки авто, калькулятор растаможки, растаможка калькулятор, растаможка авто калькулятор, сколько стоит рас"/>
             </Head>
