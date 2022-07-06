@@ -89,7 +89,7 @@ export default function Home() {
                         <Row style={{
                             paddingLeft: "8.5%"
                         }}>
-                            <h3>Калькулятор розмитнення</h3>
+                            <h1>Калькулятор розмитнення</h1>
                         </Row>
                         <Row style={{display: "flex"}}>
                             <Col style={{paddingLeft: "8.6%"}}>
