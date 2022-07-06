@@ -76,6 +76,9 @@ export default function Home() {
         <>
             <Head>
                 <title>Калькулятор розмитнення</title>
+                <link rel="manifest" href="/manifest.json"/>
+                <link rel="apple-touch-icon" href="/icon.png"></link>
+                <meta name="theme-color" content="#fff"/>
                 <meta name="description"
                       content={'Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула розмитнення у відповідності до правил додатка ДІЯ' +
                       'розмитнення, закон №7418, розмитнення 2022, розмитнення авто, розмитнення ДІЯ, імпорт авто калькулятор'}/>
