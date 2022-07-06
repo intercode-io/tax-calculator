@@ -13,5 +13,4 @@ module.exports = withPWA({
 });
 
 
-
 module.exports = nextConfig
