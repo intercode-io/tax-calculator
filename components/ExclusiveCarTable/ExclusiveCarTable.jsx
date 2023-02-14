@@ -1,7 +1,7 @@
 import style from './Table.module.scss';
 import {eUkraineFont} from "../../common/fonts/fonts";
-
 import exclusiveCar from '../../lib/ExclusiveCar.json';
+import Image from "next/image";
 
 
 export default function ExclusiveCarTable(props) {
@@ -17,10 +17,8 @@ export default function ExclusiveCarTable(props) {
                             офіційних дилерів преміальних авто на основі вартості — 275 мін ЗП.
                         </p>
                     </div>
-                    <div
-                        onClick={props.closeTable}
-                    >
-                        <img src="/close_table.svg" alt="close table"/>
+                    <div onClick={props.closeTable}>
+                        <Image width={50} height={50} src="/close_table.svg" alt="close table"/>
                     </div>
                 </div>
 
@@ -30,7 +28,7 @@ export default function ExclusiveCarTable(props) {
                             <th>Марка</th>
                             <th>Модель</th>
                             <th>Рік випуску</th>
-                            <th>Об'єм двигуна</th>
+                            <th>Об&lsquo;єм двигуна</th>
                             <th>Тип палива</th>
                         </tr>
                         {exclusiveCar.map((item, index) => (
@@ -44,32 +42,6 @@ export default function ExclusiveCarTable(props) {
                         ))}
                     </table>
                 </div>
-
-                {/*  <div className={style.table_inner__table}>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Марка</th>
-                            <th>Модель</th>
-                            <th>Рік випуску</th>
-                            <th>Об'єм двигуна</th>
-                            <th>Тип палива</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {exclusiveCar.map((item, index) => (
-                            <tr key={index}>
-                                <td>{item.Label}</td>
-                                <td>{item.Model}</td>
-                                <td>{item.Year}</td>
-                                <td>{item.Volume}</td>
-                                <td>{item.Fuel}</td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>*/}
-
             </div>
         </div>
     );
