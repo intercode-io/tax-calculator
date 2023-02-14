@@ -1,0 +1,17 @@
+.primary_button {
+  background: var(--primaryColor);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 16px 32px;
+  color: white;
+  border: none;
+  max-width: 180px;
+  transition: .3s ease;
+
+
+  &:hover {
+    transition: .3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+
+  }
+}

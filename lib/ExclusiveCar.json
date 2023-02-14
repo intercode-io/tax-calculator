@@ -1,0 +1,785 @@
+[
+ {
+  "Label": "Aston Martin",
+  "Model": "DBS Superleggera",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Aston Martin",
+  "Model": "DBX White Stone AML Special",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Aston Martin",
+  "Model": "DBX Onyx Black",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Aston Martin",
+  "Model": "DBX Intense Blue",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Aston Martin",
+  "Model": "DBX Divine Red",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "New Continental GT V8",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "New Flying Spur",
+  "Year": "до 5 років",
+  "Volume": 5980,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "New Bentayga V8",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "Continental GT Convertible V8",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "Continental GT Speed",
+  "Year": "до 5 років",
+  "Volume": 5980,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "Bentyaga S",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Bentley",
+  "Model": "Bentyaga Hybrid",
+  "Year": "до 5 років",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "5 cерії Седан M5 (F90)",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "7 cерії (подовжена версія) (G12) M760Li xDrive",
+  "Year": "до 1 року",
+  "Volume": 6592,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Convertible (G14) M850i xDrive",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Convertible (F91) M8",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Coupe (G15) M850i xDrive",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Coupe (F92) M8",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Gran Coupe (G16) M850i xDrive",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "8 cерії Gran Coupe (F93) M8",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "X5 (F95) SAV X5 M",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "BMW",
+  "Model": "X6 (F96) SAV X6 M",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Ferrari",
+  "Model": "488 Spider",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Ferrari",
+  "Model": "488 GTB",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Ferrari",
+  "Model": "812 Superfast",
+  "Year": "до 5 років",
+  "Volume": 6498,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Jaguar",
+  "Model": "F-Type R-Dynamic Coupe",
+  "Year": "до 1 року",
+  "Volume": 1998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Jaguar",
+  "Model": "F-Type R-Dynamic Black",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Jaguar",
+  "Model": "F-Type First Edition",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Jaguar",
+  "Model": "F-Type R Coupe",
+  "Year": "до 2 pоків",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Jaguar",
+  "Model": "F-Type R Convertible",
+  "Year": "до 2 pоків",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lamborghini",
+  "Model": "Huracan",
+  "Year": "до 5 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lamborghini",
+  "Model": "Aventador",
+  "Year": "до 5 років",
+  "Volume": 6498,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lamborghini",
+  "Model": "Urus",
+  "Year": "до 5 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover Vogue",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover AUTOBIOGRAPHY",
+  "Year": "до 3 років",
+  "Volume": 2998,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover SE",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover Sport",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Land Rover",
+  "Model": "Range Rover Sport SVR",
+  "Year": "до 4 років",
+  "Volume": 4461,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lexus",
+  "Model": "LX 570 Sport",
+  "Year": "до 1 року",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lexus",
+  "Model": "LX 570 Samurai",
+  "Year": "до 1 року",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lexus",
+  "Model": "LS500",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Lexus",
+  "Model": "LS500h",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "Ghibli",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "Levante",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "Levante S GranSport (2019)",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "Levante GTS (2020) - Grigio Maratea - Cuoio",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "Quattroporte",
+  "Year": "до 4 років",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "GranTurismo (GT 4.2 AT)",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Maserati",
+  "Model": "GranTurismo (GT S 4.7 AT)",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "E 63 S 4MATIC",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "E 63 S 4MATIC+ Універсал",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "G 350 d",
+  "Year": "до 1 року",
+  "Volume": 2996,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "G 400 d",
+  "Year": "до 1 року",
+  "Volume": 2996,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "G 500",
+  "Year": "до 2 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "G63 AMG",
+  "Year": "до 4 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "GLS 63 4MATIC+",
+  "Year": "до 2 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "Maybach GLS 600 4MATIC",
+  "Year": "до 3 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "GLE 63 4MATIC+",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "GLE 63 S 4MATIC+",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "GLE 63 4MATIC+ Coupé",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "GLE 63 S 4MATIC+ Coupé",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT",
+  "Year": "до 2 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT C",
+  "Year": "до 4 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT R",
+  "Year": "до 4 років",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT 43",
+  "Year": "до 1 року",
+  "Volume": 2996,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT 43 4MATIC+",
+  "Year": "до 1 року",
+  "Volume": 2996,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "AMG GT 53 4MATIC+",
+  "Year": "до 2 років",
+  "Volume": 2996,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 400 d 4MATIC long",
+  "Year": "до 1 року",
+  "Volume": 2925,
+  "Fuel": "дизель"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 500 4MATIC",
+  "Year": "до 1 року",
+  "Volume": 2999,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 500 4MATIC long",
+  "Year": "до 1 року",
+  "Volume": 2999,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 450 4MATIC long",
+  "Year": "до 1 року",
+  "Volume": 2999,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "Maybach S 580 4MATIC",
+  "Year": "до 3 років",
+  "Volume": 2996,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "Maybach S 680 4MATIC",
+  "Year": "до 5 років",
+  "Volume": 5980,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 580 e",
+  "Year": "до 1 року",
+  "Volume": 2999,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 580 e long",
+  "Year": "до 1 року",
+  "Volume": 2999,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 580 4MATIC",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 580 4MATIC long",
+  "Year": "до 1 року",
+  "Volume": 3982,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Mercedes-Benz",
+  "Model": "S 680 Guard 4MATIC",
+  "Year": "до 5 років",
+  "Volume": 5980,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "718 Cayman GT4",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "718 Boxster 25 years",
+  "Year": "до 1 року",
+  "Volume": 1998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Taycan 4S",
+  "Year": "до 2 років",
+  "Fuel": "електро"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4E-Hybrid",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4E-Hybrid Executive",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4E-Hybrid Sport Turismo",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4S E-Hybrid",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4S E-Hybrid Executive",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera 4S E-Hybrid Sport Turismo",
+  "Year": "до 2 років",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera GTS",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera GTS Sport Turismo",
+  "Year": "до 2 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S Executive",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S Sport Turismo",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S E-Hybrid",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S E-Hybrid Executive",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Panamera Turbo S E-Hybrid Sport Turismo",
+  "Year": "до 5 років",
+  "Volume": 2998,
+  "Fuel": "гібрид"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Cayenne GTS",
+  "Year": "до 1 року",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Cayenne Coupe S",
+  "Year": "до 1 року",
+  "Volume": 2998,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Cayenne Coupe Turbo",
+  "Year": "до 3 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Cayenne Coupe Turbo S E-Hybrid",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Porsche",
+  "Model": "Cayenne Coupe GT",
+  "Year": "до 5 років",
+  "Volume": 4395,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Phantom SWB",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Phantom EWB",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Wraith",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Wraith Black Badge",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Dawn",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Dawn Black Badge",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Cullinan",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Cullinan Black Badge",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Ghost",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Rolls-Royce",
+  "Model": "Ghost EWB",
+  "Year": "до 5 років",
+  "Volume": 6750,
+  "Fuel": "бензин"
+ },
+ {
+  "Label": "Cadillac",
+  "Model": "Escalade",
+  "Year": "до 3 років",
+  "Volume": 5980,
+  "Fuel": "бензин"
+ }
+]
