@@ -11,17 +11,17 @@
     background-size: 0.7em;
     border: 1px solid #B1C0D4;
 
-/*    &:focus, &:active {
-      width: 485px;
-      border-radius: 50px;
-      padding: 12px 16px;
-      -webkit-appearance: none;
-      background-image: url("/SelectInput/close_arrow.svg");
-      background-repeat: no-repeat;
-      background-position: 10px 10px;
-      background-size: 0.7em;
-      border: 1px solid #B1C0D4;
-    }*/
+    /*    &:focus, &:active {
+          width: 485px;
+          border-radius: 50px;
+          padding: 12px 16px;
+          -webkit-appearance: none;
+          background-image: url("/SelectInput/close_arrow.svg");
+          background-repeat: no-repeat;
+          background-position: 10px 10px;
+          background-size: 0.7em;
+          border: 1px solid #B1C0D4;
+        }*/
 
     /* &:focus {
        outline: none;
@@ -45,24 +45,24 @@
 
 @media screen and (max-width: 1285px) {
   .select_box {
-    select{
+    select {
       width: 450px;
     }
   }
 }
 
-@media screen and (max-width: 991px){
+@media screen and (max-width: 991px) {
   .select_box {
-    select{
+    select {
       width: 320px;
     }
   }
 }
 
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .select_box {
-    select{
+    select {
       width: 311px;
     }
   }
@@ -131,4 +131,80 @@ input:checked + .toggle_switch_label .toggle_switch_inner {
 
 input:checked + .toggle_switch_label .toggle_switch_switch {
   right: calc(100% - 49%);
+}
+
+
+.menu_container {
+  position: relative;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 50px;
+    padding: 12px 16px;
+    cursor: pointer;
+    height: 48px;
+
+
+
+
+    text {
+      padding: 0;
+      font-size: 14px;
+      line-height: 120%;
+      color: #B1C0D4;
+      margin-bottom: -5px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      p {
+        margin: 0 !important;
+      }
+
+
+
+
+    }
+
+  }
+
+  .dropdown {
+    position: absolute;
+    width: 93%;
+    z-index: 10;
+    margin-top: 5px;
+    background: #FFFFFF;
+    border: 1px solid #70B0FB;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 16px;
+    max-height: 300px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+
+
+
+    p {
+      padding: 8px 16px;
+      font-size: 18px;
+      line-height: 120%;
+
+
+      &:hover {
+        background: #E9EDF2;
+        border-radius: 20px;
+      }
+    }
+  }
 }

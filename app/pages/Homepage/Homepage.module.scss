@@ -17,12 +17,16 @@
     h2 {
       margin: 0;
       font-size: 64px;
+      line-height: 80px;
       font-weight: 400;
     }
 
     p {
       margin-top: 16px;
+      font-weight: 400;
       font-size: 18px;
+      line-height: 150%;
+      letter-spacing: -0.02em;
     }
   }
 }
