@@ -2,8 +2,8 @@
 import style from './Calculator.module.scss';
 import {eUkraineFont, codecColdFont} from "../../common/fonts/fonts";
 import {useInput} from "../../hooks/useInput";
-import {useEffect, useState} from "react";
-import {SelectInput, SelectInputTypes, ToggleSwitch} from "../Inputs/SelectInput";
+import {useEffect, useRef, useState} from "react";
+import {Dropdown, DropdownType, ToggleSwitch} from "../Inputs/SelectInput";
 import {PrimaryButton} from "../Buttons/Buttons";
 import yearCoefficient from "../../common/year-coefficient";
 import {calculatePrice} from "../../lib/calculatePrice";
@@ -29,13 +29,19 @@ export default function Calculator() {
     const [excise, setExcise] = useState(0);
     const [exciseInUAH, setExciseInUAH] = useState(0);
     const [isShowTable, setShowTable] = useState(false);
+    const isActiveYearDropdown = useInput(false);
+    const isActiveVolumeDropdown = useInput(false);
+    const isActiveFuelDropdown = useInput(false);
 
+    const [validateYearInput, setValidateYearInput] = useState(false);
+    const [validateVolumeInput, setValidateVolumeInput] = useState(false);
+    const [validateFuelInput, setValidateFuelInput] = useState(false);
+    const typeRef = useRef(null);
 
     useEffect(() => {
         setYearArray(generateYearArray(currentYear));
         setVolumeArray(generateVolumeArray());
     }, []);
-
     useEffect(() => {
         setAgeOfCar(calculateAgeOfCar(yearOfManufacture.value, currentYear));
         setRate(calculateRate(ageOfCar));
@@ -53,21 +59,34 @@ export default function Calculator() {
 
     const handleCalculate = async () => {
         let UAH;
-        loading.onChange(true);
         await getCurrencyData().then((res) => {
             UAH = res.conversion_rates.UAH;
-            console.log(UAH)
         });
 
-        await setTimeout(() => {
-            setResult(calculatePrice(data).finalPrice);
-            setPDV(calculatePrice(data).PDV);
-            setExcise(calculatePrice(data).excise);
-            setResultInUAH(calculatePrice(data).finalPrice * UAH);
-            setExciseInUAH(calculatePrice(data).excise * UAH);
-            setPDVinUAH(calculatePrice(data).PDV * UAH);
-        }, 2000);
+        if (data.yearOfManufacture === 0) {
+            setValidateYearInput(true);
+        }
+        if (data.volumeCar === 0) {
+            setValidateVolumeInput(true)
+        }
+        if (typeRef.current.innerHTML === 'Оберіть зі списку') {
+            setValidateFuelInput(true);
+        } else {
+            loading.onChange(true);
+            setValidateYearInput(false);
+            setValidateVolumeInput(true)
+
+            await setTimeout(() => {
+                setResult(calculatePrice(data).finalPrice);
+                setPDV(calculatePrice(data).PDV);
+                setExcise(calculatePrice(data).excise);
+                setResultInUAH(calculatePrice(data).finalPrice * UAH);
+                setExciseInUAH(calculatePrice(data).excise * UAH);
+                setPDVinUAH(calculatePrice(data).PDV * UAH);
+            }, 2000);
+        }
     }
+
 
     function generateYearArray(currentYear) {
         let yearCarArray = [];
@@ -124,8 +143,8 @@ export default function Calculator() {
         <div>
             {isShowTable ? <ExclusiveCarTable closeTable={showTable}/> : null}
             <div className={style.mobile_description}>
-                <h4 className={eUkraineFont.Regular.className}>Калькулятор розмитнення авто</h4>
-                <p className={eUkraineFont.UltraLight.className}>
+                <h4>Калькулятор розмитнення авто</h4>
+                <p className={codecColdFont.Regular.className}>
                     Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула
                     розмитнення у
                     відповідності до правил додатку ДІЯ.
@@ -134,39 +153,58 @@ export default function Calculator() {
             <div className={style.calculator_container}>
                 <div className={style.calculator_container__description}>
                     <h4 className={eUkraineFont.Regular.className}>Калькулятор розмитнення авто</h4>
-                    <p className={eUkraineFont.UltraLight.className}>
+                    <p className={codecColdFont.Regular.className}>
                         Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула
                         розмитнення у
                         відповідності до правил додатку ДІЯ.
                     </p>
                 </div>
                 <div className={style.calculator_container__calculator_block}>
-                    <div className={style.calculator + " " + eUkraineFont.Light.className}>
+                    <div className={style.calculator + " " + codecColdFont.Regular.className}>
                         <div>
                             <p>Рік випуску</p>
-                            <SelectInput dataArray={yearArray} onChange={yearOfManufacture}/>
+                            <Dropdown
+                                dataArray={yearArray}
+                                active={isActiveYearDropdown}
+                                onChange={yearOfManufacture}
+                                icon={'/SelectInput/year_icon.svg'}
+                                active_icon={'/SelectInput/active_year.svg'}
+                                error_icon={'/SelectInput/error_year.svg'}
+                                isValidate={validateYearInput}
+                            />
                         </div>
                         <div>
                             <p>Об’єм двигуна</p>
-                            <SelectInput dataArray={volumeArray} onChange={volumeCar}/>
+                            <Dropdown
+                                dataArray={volumeArray}
+                                active={isActiveVolumeDropdown}
+                                onChange={volumeCar}
+                                icon={'/SelectInput/volume_icon.svg'}
+                                active_icon={'/SelectInput/active_volume.svg'}
+                                error_icon={'/SelectInput/error_volume.svg'}
+                                isValidate={validateVolumeInput}
+                            />
                         </div>
                         <div>
                             <p>Тип двигуна</p>
-                            <SelectInputTypes onChange={engineType}/>
+                            <DropdownType
+                                refer={typeRef}
+                                onChange={engineType}
+                                active={isActiveFuelDropdown}
+                                icon={'/SelectInput/fuel_icon.svg'}
+                                active_icon={'/SelectInput/active_fuel.svg'}
+                                error_icon={'/SelectInput/error_fuel.svg'}
+                                isValidate={validateFuelInput}
+                            />
                         </div>
                         <div className={style.exclusive_auto}>
-                            <div
-                                style={{textDecoration: 'underline'}}
-                                onClick={() => showTable()}
-                            >
-                                Ексклюзивне авто
+                            <div style={{textDecoration: 'underline'}} onClick={() => showTable()}>
+                                <img src="/diamond.svg" alt="diamond"/>
+                                <p className={codecColdFont.Regular.className}>Ексклюзивне авто</p>
                             </div>
                             <ToggleSwitch value={isExclusiveCar}/>
                         </div>
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'center'
-                        }}>
+                        <div style={{display: 'flex', justifyContent: 'center'}}>
                             <PrimaryButton handleClick={handleCalculate}>Розрахувати</PrimaryButton>
                         </div>
                     </div>
@@ -176,24 +214,24 @@ export default function Calculator() {
                         </div>
                         : <div className={style.result}>
                             <h5 className={eUkraineFont.Regular.className}>Загальна вартість:</h5>
-                            <p className={eUkraineFont.UltraLight.className}>Включає ПДВ (податку на додану вартість) та
+                            <p className={codecColdFont.Regular.className}>Включає ПДВ (податку на додану вартість) та
                                 Акцизний податок</p>
 
                             <h4 className={eUkraineFont.Regular.className}>
                                 {result.toFixed(2)} €
                                 {resultInUAH === 0 ? null :
-                                    <span className={eUkraineFont.Light.className}> ≈ {resultInUAH.toFixed(0)} ₴
+                                    <span className={eUkraineFont.Regular.className}> ≈ {resultInUAH.toFixed(0)} ₴
                             </span>}
                                 <hr/>
                                 {result !== 0 ?
                                     <div className={style.additional_info}>
                                         <div>
-                                            <p className={eUkraineFont.Thin.className}>Акциз:</p>
-                                            <p>{excise.toFixed(2)} ≈ {exciseInUAH.toFixed(0)} ₴</p>
+                                            <p className={eUkraineFont.Regular.className}>Акциз:</p>
+                                            <p>{excise.toFixed(2)} <span>≈ {exciseInUAH.toFixed(0)} ₴</span></p>
                                         </div>
                                         <div>
-                                            <p className={eUkraineFont.Thin.className}>ПДВ:</p>
-                                            <p>{PDV.toFixed(2)} ≈ {PDVinUAH.toFixed(0)} ₴</p>
+                                            <p className={eUkraineFont.Regular.className}>ПДВ:</p>
+                                            <p>{PDV.toFixed(2)} <span>≈ {PDVinUAH.toFixed(0)} ₴</span></p>
                                         </div>
                                     </div>
                                     : null

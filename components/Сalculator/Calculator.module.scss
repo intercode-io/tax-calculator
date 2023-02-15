@@ -13,15 +13,18 @@
     padding: 48px 102px 0 102px;
 
     h4 {
+      font-weight: 400;
+      line-height: 38px;
       font-size: 32px;
       margin: 0;
     }
 
     p {
-      color: var(--accentColor);
+      height: 48px;
+      color: #78818C;
       margin: 16px 0 0 0;
-      font-size: 18px;
-      letter-spacing: 0.02em;
+      font-size: 16px;
+      letter-spacing: -0.02em;
       line-height: 150%;
       max-width: 715px;
     }
@@ -31,10 +34,10 @@
     padding: 40px 102px 48px 102px;
 
     display: flex;
-    margin-top: 32px;
     justify-content: space-between;
 
     .calculator {
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 32px;
@@ -42,8 +45,11 @@
       max-width: 50%;
 
       p {
-        margin: 0;
-        margin-bottom: 16px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        margin-top: 7px !important;
+        letter-spacing: -0.02em;
       }
 
       .exclusive_auto {
@@ -51,6 +57,26 @@
         justify-content: center;
         align-items: center;
         gap: 32px;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+
+          p {
+            margin: 0;
+            margin-top: 2px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 150%;
+            padding: 0;
+          }
+
+          img {
+
+          }
+        }
       }
     }
 
@@ -58,28 +84,43 @@
       max-width: 50%;
 
       h5 {
+        font-weight: 400;
         font-size: 24px;
+        line-height: 30px;
         margin: 0;
       }
 
+
       h4 {
+        margin: 0;
+        font-weight: 400;
         font-size: 32px;
+        line-height: 38px;
 
         span {
-          font-size: 24px;
-          color: var(--accent2Color);
+
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 24px;
+          color: #B1C0D4;
         }
       }
 
       p {
         max-width: 385px;
+        font-weight: 400;
         font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.02em;
+        color: #78818C;
       }
 
       .additional_info {
         p {
+          font-weight: 300;
           font-size: 18px;
-          color: #616F82;
+          line-height: 24px;
+         color: #616F82;
         }
 
         div {
@@ -124,12 +165,16 @@
 
     &__calculator_block {
       padding: 32px 32px 48px 32px;
+
+      .calculator {
+        width: 47%;
+      }
     }
   }
 }
 
 @media screen and (max-width: 767px) {
-  .loader{
+  .loader {
     width: 100%;
   }
   .mobile_description {
@@ -151,7 +196,8 @@
       padding: 24px 16px;
 
       .calculator {
-        max-width: 100%;
+        width: 100%;
+        max-width: none;
       }
 
       .result {
