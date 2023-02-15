@@ -143,7 +143,7 @@ export default function Calculator() {
         <div>
             {isShowTable ? <ExclusiveCarTable closeTable={showTable}/> : null}
             <div className={style.mobile_description}>
-                <h4>Калькулятор розмитнення авто</h4>
+                <h4 className={eUkraineFont.Regular.className}>Калькулятор розмитнення авто</h4>
                 <p className={codecColdFont.Regular.className}>
                     Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула
                     розмитнення у
