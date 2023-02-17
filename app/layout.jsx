@@ -1,6 +1,9 @@
+'use client'
 import './globals.css'
 import Navbar from "../components/Navbar/Navbar";
 import Script from "next/script";
+
+
 
 export default function RootLayout({children}) {
     return (
@@ -37,14 +40,13 @@ export default function RootLayout({children}) {
             display: "grid",
             justifyItems: 'center',
             width: "100%",
-            background: '#EEF5FF'
         }}>
             <Navbar/>
             <div className="contentWrapper">
                 {children}
-
             </div>
         </main>
+      {/*  <Footer/>*/}
         </body>
         </html>
     )

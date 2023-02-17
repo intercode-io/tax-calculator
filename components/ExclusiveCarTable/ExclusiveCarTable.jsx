@@ -11,20 +11,20 @@ export default function ExclusiveCarTable(props) {
                 <div className={style.table_inner__heading}>
                     <div>
                         <h3 className={eUkraineFont.Medium.className}>Перелік ексклюзивних авто</h3>
-                        <p className={eUkraineFont.Light.className}>
+                        <p className={eUkraineFont.Regular.className}>
                             Перелік легкових автомобілів, які підлягають оподаткуванню транспортним податком у 2022
                             році.Перелік не повний, він формується для сплати податку на розкіш через запит МЕРТ до
                             офіційних дилерів преміальних авто на основі вартості — 275 мін ЗП.
                         </p>
                     </div>
                     <div onClick={props.closeTable}>
-                        <Image width={50} height={50} src="/close_table.svg" alt="close table"/>
+                        <Image width={20} height={20} src="/close_table.svg" alt="close table"/>
                     </div>
                 </div>
 
                 <div className={style.table}>
                     <table >
-                        <tr className={eUkraineFont.Light.className}>
+                        <tr className={eUkraineFont.Regular.className}>
                             <th>Марка</th>
                             <th>Модель</th>
                             <th>Рік випуску</th>
@@ -32,7 +32,7 @@ export default function ExclusiveCarTable(props) {
                             <th>Тип палива</th>
                         </tr>
                         {exclusiveCar.map((item, index) => (
-                            <tr className={eUkraineFont.Light.className} key={index}>
+                            <tr className={eUkraineFont.Regular.className} key={index}>
                                 <td>{item.Label}</td>
                                 <td>{item.Model}</td>
                                 <td>{item.Year}</td>

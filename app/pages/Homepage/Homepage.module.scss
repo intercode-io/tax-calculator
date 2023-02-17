@@ -4,6 +4,8 @@
   display: grid;
   justify-content: center;
   justify-items: center;
+  overflow: hidden;
+  max-width: 1200px;
 }
 
 .additional_info {
@@ -50,7 +52,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .homepage_container{
+  .homepage_container {
     margin-top: 0;
   }
   .steps_info {
@@ -68,6 +70,119 @@
 
       p {
         font-size: 14px;
+      }
+    }
+  }
+}
+
+
+.other_sections_wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: white;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.other_section_container {
+  max-width: 1200px;
+}
+
+.catalog_auto {
+  margin-top: 104px;
+  text-align: center;
+
+  h3 {
+    font-size: 40px;
+    line-height: 48px;
+    margin: 0;
+  }
+
+  &__car_block {
+    margin-top: 72px;
+    margin-bottom: 72px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+.services_banner {
+  margin-top: 104px;
+  width: 100%;
+  background: #EEF5FF;
+  border-radius: 10px;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    max-width: 498px;
+    width: 100%;
+  }
+
+  .answers_block {
+    position: relative;
+    left: -55px;
+    max-width: 700px;
+    width: 100%;
+    padding: 64px 56px;
+    background: white;
+    box-shadow: 12px 12px 24px rgba(8, 35, 65, 0.15);
+    border-radius: 10px;
+
+
+    h3 {
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 0;
+    }
+
+    h5 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 150%;
+      letter-spacing: -0.02em;
+      color: #70B0FB;
+      border-bottom: 2px solid #70B0FB;
+      max-width: 230px;
+      cursor: pointer;
+      transition: .3s ease;
+
+      &:hover {
+        transform: scale(1.03);
+        transition: .3s ease;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .blue_line {
+      width: 60px;
+      height: 3px;
+      background: #70B0FB;
+      border-radius: 10px;
+    }
+
+    &_answer {
+      margin-top: 40px;
+
+      p {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
+        color: #5B7BA5;
+        border-bottom: 1px solid #5B7BA5;
       }
     }
   }

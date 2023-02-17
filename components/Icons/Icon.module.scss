@@ -1,0 +1,21 @@
+.social_icon {
+  border: none;
+  border-radius: 50%;
+  background: #70B0FB;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+
+  img {
+    width: 17px;
+    height: 17px;
+  }
+
+  &:hover {
+    transition: .2s ease;
+    transform: scale(1.08);
+  }
+}
