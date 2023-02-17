@@ -31,14 +31,6 @@ export default function RootLayout({children}) {
                 })(window,document,'script','dataLayer','GTM-WDVJGHD')`
             }
         </Script>
-        <Script type="application/ld+json">
-            {`
-                "@context": "http://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "Калькулятор розмитнення авто",
-                "image": "http://www.googleusercontent.com/NavbarImages/logo.svg"
-           `}
-        </Script>
         <head/>
         <body>
         <main style={{
