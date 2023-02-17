@@ -3,8 +3,8 @@ export default function Head() {
         <>
             <title>Калькулятор розмитнення авто</title>
             <link rel="manifest" href="/manifest.json"/>
-            <link rel="icon" href="/favicon.ico"></link>
-            <link rel="apple-touch-icon" href="/favicon.ico"/>
+            <link rel="icon" href="/icon.svg"></link>
+            <link rel="apple-touch-icon" href="/icon.svg"/>
             <meta name="apple-mobile-web-app-title" content="Калькулятор розмитнення авто"/>
             <meta name="apple-mobile-web-app-capable" content="yes"/>
             <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
