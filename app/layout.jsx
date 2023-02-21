@@ -2,6 +2,7 @@
 import './globals.css'
 import Navbar from "../components/Navbar/Navbar";
 import Script from "next/script";
+import Footer from "../components/Footer/Footer";
 
 
 
@@ -46,7 +47,7 @@ export default function RootLayout({children}) {
                 {children}
             </div>
         </main>
-      {/*  <Footer/>*/}
+        <Footer/>
         </body>
         </html>
     )

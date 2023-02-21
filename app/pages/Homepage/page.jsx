@@ -1,68 +1,77 @@
+'use client'
 import style from './Homepage.module.scss';
 import Calculator from "../../../components/Сalculator/Calculator";
 import {codecColdFont, eUkraineFont} from "../../../common/fonts/fonts";
-import Step from "../../../components/Step/Step";
 import CarCard from "../../../components/CarCard/CarCard";
 import {PrimaryButton} from "../../../components/Buttons/Buttons";
+import Link from "next/link";
+import Image from "next/image";
+import {Input} from "../../../components/Inputs/SelectInput";
+import {useFormik} from 'formik';
+import {BMW320DCharacteristics, EGolfGTDCharacteristics, MazdaCX5Characteristics} from "../../../common/cars_mockup";
+import * as Yup from 'yup';
+import '@splidejs/react-splide/css';
+import '@splidejs/react-splide/css/core';
+import {AutoSlider, FeedbackSlider, SmallFeedbackSlider} from "../../../components/Sliders/Sliders";
 
+const formSchema = Yup.object().shape({
+    name: Yup.string().min(2, 'Занадто коротке ім`я').max(50, 'Занадто довге ім`я!').required('Це поле обов’язкове для заповнення'),
+    phone: Yup.string().required('Це поле обов’язкове для заповнення').matches('^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$', 'Не коррекстний номер телефону'),
 
-const MazdaCX5Characteristics = [
-    {
-        year: '2019',
-        fuel_type: 'дизель',
-        KP: 'автомат',
-        suspension: '4 х 4',
-        mileage: '120 тис. км.',
-        engine: '2.0',
-        turbine: '210 кВт',
-        car_type: 'позашляховик',
+});
 
-    }
-]
+const FeedbackForm = () => {
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            phone: '',
+        }, onSubmit: values => {
+            console.log(values)
+        },
+        validationSchema: formSchema,
+    });
+    return (
+        <form onSubmit={formik.handleSubmit} className={style.form}>
+            <div className={style.form__input_container}>
+                <label className={codecColdFont.Regular.className} htmlFor="name">Ваше ім’я</label>
+                <Input
+                    handleChange={formik.handleChange}
+                    icon={'/SelectInput/user_icon.svg'}
+                    value={formik.values.name}
+                    name={"name"}
+                />
+                {formik.errors.name && <div
+                    className={style.form__error + ' ' + codecColdFont.Regular.className}>{formik.errors.name}</div>}
+            </div>
+            <div className={style.form__input_container}>
+                <label className={codecColdFont.Regular.className} htmlFor="name">Номер телефону</label>
+                <Input
+                    name={"phone"}
+                    handleChange={formik.handleChange}
+                    icon={'/SelectInput/phone_icon.svg'}
+                    value={formik.values.phone}
+                />
+                {formik.errors.phone && <div
+                    className={style.form__error + ' ' + codecColdFont.Regular.className}>{formik.errors.phone}</div>}
 
-const EGolfGTDCharacteristics = [
-    {
-        year: '2019',
-        fuel_type: 'дизель',
-        KP: 'автомат',
-        suspension: 'передній привід',
-        mileage: '120 тис. км.',
-        engine: '2.0',
-        turbine: '210 кВт',
-        car_type: 'хэтчбек',
-
-    }
-]
-
-
-const BMW320DCharacteristics = [
-    {
-        year: '2019',
-        fuel_type: 'дизель',
-        KP: 'автомат',
-        suspension: 'задній привід',
-        mileage: '120 тис. км.',
-        engine: '2.0',
-        turbine: '210 кВт',
-        car_type: 'універсал',
-
-    }
-]
+            </div>
+            <div className={style.button_container}>
+                <div type="submit" className={style.form__submit_button}>
+                    <PrimaryButton>Надіслати</PrimaryButton>
+                </div>
+            </div>
+        </form>
+    )
+}
 
 
 export default function Homepage() {
     return (
         <>
-            <div style={{
-                width: "100%",
-                background: "#EEF5FF",
-                display: "grid",
-                height: 'auto',
-                justifyItems: "center",
-            }}>
+            <div className={style.homepage_wrapper}>
                 <div className={style.homepage_container}>
                     <Calculator/>
-                    <div className={style.additional_info}>
+                    {/*<div className={style.additional_info}>
                         <div className={style.additional_info__heading}>
                             <h2 className={eUkraineFont.Regular.className}>Як працюватиме послуга в Дії</h2>
                             <p className={codecColdFont.Regular.className}>
@@ -114,52 +123,167 @@ export default function Homepage() {
                                 </ol>
                             </Step>
                         </div>
+                    </div>*/}
+                </div>
+                <div className={style.other_sections_wrapper}>
+                    <div className={style.other_section_container}>
+                        <div className={style.catalog_auto}>
+                            <h3 className={eUkraineFont.Regular.className}>Каталог наявних автомобілів </h3>
+                            <div className={style.catalog_auto__car_block}>
+                                <CarCard
+                                    car_photo={'/Cars/MazdaCX-5.jpg'}
+                                    car_name={'Mazda CX-5'}
+                                    car_price={'25.000'}
+                                    car_characteristics={MazdaCX5Characteristics}
+                                />
+                                <CarCard
+                                    car_photo={'/Cars/VW_E-Golf_GTD.jpg'}
+                                    car_name={'VW E-Golf GTD '}
+                                    car_price={'25.000'}
+                                    car_characteristics={EGolfGTDCharacteristics}
+                                />
+                                <CarCard
+                                    car_photo={'/Cars/BMW_320d_XDrive.jpg'}
+                                    car_name={'BMW 320d XDrive'}
+                                    car_price={'25.000'}
+                                    car_characteristics={BMW320DCharacteristics}
+                                />
+                            </div>
+                            <div className={style.catalog_auto__auto_slider}>
+                                <AutoSlider/>
+                            </div>
+                            <PrimaryButton>Переглянути більше</PrimaryButton>
+                        </div>
+                        <div className={style.services_banner}>
+                            <img src="/Banners/Service_banner.jpg" alt="Service_banner"/>
+                            <div className={style.answers_block}>
+                                <h3 className={eUkraineFont.Regular.className}>Ми надаєм послуги</h3>
+                                <p className={eUkraineFont.Regular.className}>ми дійсно хороші в цьому</p>
+                                <div className={style.blue_line}/>
+                                <div className={style.answers_block_answer + ' ' + eUkraineFont.Regular.className}>
+                                    <p>Авто під замовлення</p>
+                                    <p>Авто з аукціону</p>
+                                    <p>Лізинг авто</p>
+                                    <p>Брокерські послуги</p>
+                                </div>
+                                <h5 className={codecColdFont.Regular.className}>Переглянути всі послуги</h5>
+                            </div>
+                        </div>
+                        <div className={style.advantages}>
+                            <h3 className={eUkraineFont.Regular.className}>Наші головні переваги</h3>
+                            <div className={style.advantages__items}>
+                                <div className={style.item}>
+                                    <img src="/Advantages/auto.svg" alt="item_image"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Персональний підбір</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Підбір та покупка (під Вас) будь-якої
+                                        моделі авто у Європі.
+                                    </p>
+                                </div>
+                                <div className={style.item}>
+                                    <img src="/Advantages/auto_state.svg" alt="auto_state"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Перевірка стану автомобіля</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Підбір та покупка (під Вас) будь-якої моделі авто у Європі.
+                                    </p>
+                                </div>
+                                <div className={style.item}>
+                                    <img src="/Advantages/coomunication.svg" alt="coomunication"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Постійний аудіо та відео зв'язок</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Підбір та покупка (під Вас) будь-якої моделі авто у Європі.
+                                    </p>
+                                </div>
+                                <div className={style.item}>
+                                    <img src="/Advantages/cooperation.svg" alt="cooperation"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Співпраця із офіційними дилерами</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Усі автомобілі ретельно перевірені, мають підтверджений пробіг та історію
+                                        обслуговування.
+                                    </p>
+                                </div>
+                                <div className={style.item}>
+                                    <img src="/Advantages/delivery.svg" alt="delivery"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Правильне оформлення та доставка
+                                        авто</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Оформлення усіх документів для розмитнення та постановки на облік. Доставка авто
+                                        в Україну.
+                                    </p>
+                                </div>
+                                <div className={style.item}>
+                                    <img src="/Advantages/time.svg" alt="time"/>
+                                    <h6 className={eUkraineFont.Regular.className}>Економія часу</h6>
+                                    <p className={codecColdFont.Regular.className}>
+                                        Ви не витрачаєте свій час на пошук автомобіля та усі інші процедури необхідні
+                                        для постановки на облік у сервісних центрах МВС (МРЕВ).
+                                    </p>
+                                </div>
+                            </div>
+                            <Link href={'#'}>
+                                <PrimaryButton>Зв’язатись з нами</PrimaryButton>
+                            </Link>
+                        </div>
+                        <div className={style.feedback}>
+                            <h3 className={eUkraineFont.Regular.className}>Відгуки наших клієнтів</h3>
+                            <p className={codecColdFont.Regular.className}>
+                                Відгуки наших клієнтів ми взяли з нашої Інстаграм сторінки, де ви можете переглянути
+                                автомобілі, відгуки та слідкувати за діяльність нашої компанії
+                            </p>
+                            <div className={style.feedback__instagram_card_container}>
+                                <img src="/instagram.svg" alt="instagram"/>
+                                <div>
+                                    <img src="/lm_logo.svg" alt="lm_logo"/>
+                                    <span>
+                                        <p className={style.name_link + ' ' + eUkraineFont.Medium.className}>leasing.motors</p>
+                                        <a className={eUkraineFont.Regular.className} target={"_blank"}
+                                           href={'https://www.instagram.com/leasing.motors/'}
+                                        >
+                                            Підписатись
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div className={style.desktop_slider}>
+                                <FeedbackSlider/>
+                            </div>
+                            <div className={style.mobile_slider}>
+                                <SmallFeedbackSlider/>
+                            </div>
+                            <PrimaryButton>Зв’язатись з нами</PrimaryButton>
+                        </div>
+                        <div className={style.consultation_banner}>
+                            <div className={style.answers_block}>
+                                <h3 className={eUkraineFont.Regular.className}>Консультація</h3>
+                                <h5 className={eUkraineFont.Regular.className}>Наші фахівці залюбки дадуть відповідь на
+                                    ваші запитання</h5>
+                                <div className={style.blue_line}/>
+                                <div className={style.contact_form}>
+                                    <div className={style.contact_form__inner_content}>
+                                        <FeedbackForm/>
+                                    </div>
+                                </div>
+
+                                <div className={style.answers_block__socials}>
+                                    <p className={codecColdFont.Regular.className}>Або напишіть нам в соціальних
+                                        мережах</p>
+                                    <div className={style.social_items}>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/yt.svg'}/>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/fb.svg'}/>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/wp.svg'}/>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/vb.svg'}/>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/tg.svg'}/>
+                                        <Image width={32} height={32} src={'/SocialIcons/colored_icons/inst.svg'}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="/Banners/Consultation_banner.jpg" alt="Consultation_banner"/>
+
+                        </div>
                     </div>
                 </div>
             </div>
-           {/* <div className={style.other_sections_wrapper}>
-                <div className={style.other_section_container}>
-                    <div className={style.catalog_auto}>
-                        <h3 className={eUkraineFont.Regular.className}>Каталог наявних автомобілів </h3>
-                        <div className={style.catalog_auto__car_block}>
-                            <CarCard
-                                car_photo={'/Cars/MazdaCX-5.jpg'}
-                                car_name={'Mazda CX-5'}
-                                car_price={'25.000'}
-                                car_characteristics={MazdaCX5Characteristics}
-                            />
-                            <CarCard
-                                car_photo={'/Cars/VW_E-Golf_GTD.jpg'}
-                                car_name={'VW E-Golf GTD '}
-                                car_price={'25.000'}
-                                car_characteristics={EGolfGTDCharacteristics}
-                            />
-                            <CarCard
-                                car_photo={'/Cars/BMW_320d_XDrive.jpg'}
-                                car_name={'BMW 320d XDrive'}
-                                car_price={'25.000'}
-                                car_characteristics={BMW320DCharacteristics}
-                            />
-                        </div>
-                        <PrimaryButton>Переглянути більше</PrimaryButton>
-                    </div>
-                    <div className={style.services_banner}>
-                        <img src="/Banners/Service_banner.jpg" alt="Service_banner"/>
-                        <div className={style.answers_block}>
-                            <h3 className={eUkraineFont.Regular.className}>Ми надаєм послуги</h3>
-                            <p className={eUkraineFont.Regular.className}>ми дійсно хороші в цьому</p>
-                            <div className={style.blue_line}/>
-                            <div className={style.answers_block_answer + ' ' + eUkraineFont.Regular.className}>
-                                <p>Авто під замовлення</p>
-                                <p>Авто з аукціону</p>
-                                <p>Лізинг авто</p>
-                                <p>Брокерські послуги</p>
-                            </div>
-                            <h5 className={codecColdFont.Regular.className}>Переглянути всі послуги</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
+
         </>
 
     );

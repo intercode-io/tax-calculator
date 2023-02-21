@@ -80,3 +80,45 @@
     }
   }
 }
+
+@media screen and (max-width: 1200px){
+  .card_container{
+    &__info_block{
+      .characteristics{
+        &_item{
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px){
+  .card_container{
+    h5{
+      font-size: 18px;
+    }
+    &__info_block{
+      .characteristics{
+        &_item{
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .card_container{
+    h5{
+      font-size: 24px;
+    }
+    &__info_block{
+      .characteristics{
+        &_item{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
