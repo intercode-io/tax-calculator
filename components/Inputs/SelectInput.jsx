@@ -188,3 +188,19 @@ export function ToggleSwitch(props) {
         </div>
     );
 }
+
+
+export function Input(props) {
+    return (
+        <div className={style.defaultInput}>
+            <img src={props.icon} alt=""/>
+            <input type="text"
+                   value={props.value}
+                   onChange={props.handleChange}
+                   placeholder={'Введіть ім’я'}
+                   name={props.name}
+                   className={codecColdFont.Regular.className}
+            />
+        </div>
+    )
+}

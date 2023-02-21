@@ -37,7 +37,40 @@ body {
 }
 
 
+.splide__pagination {
+    margin-bottom: -30px !important;
+}
+
+.splide__pagination__page {
+    background: #B1C0D4 !important;
+}
 
 
+.splide__pagination__page.is-active {
+    background: #70B0FB !important;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .splide {
+        max-width: 1000px !important;
+    }
+}
+
+@media screen  and (max-width: 991px) {
+    .splide {
+        max-width: 700px !important;
+    }
+}
+
+@media screen  and (max-width: 700px) {
+    .auto_slider .splide {
+        max-width: 700px !important;
+    }
+
+    .feedback .splide {
+        max-width: 300px !important;
+    }
+}
 
 

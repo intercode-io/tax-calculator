@@ -204,3 +204,32 @@ input:checked + .toggle_switch_label .toggle_switch_switch {
 }
 
 
+.defaultInput {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #B1C0D4;
+  background: #FFFFFF;
+  border-radius: 50px;
+  gap: 12px;
+  cursor: pointer;
+  height: 50px;
+  padding: 0 16px;
+
+  input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  img {
+    max-width: 24px !important;
+    max-height: 24px;
+  }
+}
