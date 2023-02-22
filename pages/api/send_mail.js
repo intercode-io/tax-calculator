@@ -2,7 +2,7 @@ import sgMail from '@sendgrid/mail';
 
 
 export default function handler(req, res) {
-    sgMail.setApiKey('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');
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
     let data = req.body;
 
