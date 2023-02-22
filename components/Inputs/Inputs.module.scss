@@ -11,25 +11,6 @@
     background-size: 0.7em;
     border: 1px solid #B1C0D4;
 
-    /*    &:focus, &:active {
-          width: 485px;
-          border-radius: 50px;
-          padding: 12px 16px;
-          -webkit-appearance: none;
-          background-image: url("/SelectInput/close_arrow.svg");
-          background-repeat: no-repeat;
-          background-position: 10px 10px;
-          background-size: 0.7em;
-          border: 1px solid #B1C0D4;
-        }*/
-
-    /* &:focus {
-       outline: none;
-       background-image: url("/SelectInput/close_arrow.svg");
-
-     }*/
-
-
     option {
       height: 50px !important;
       margin: 8px 16px;
@@ -68,14 +49,6 @@
   }
 }
 
-
-/*@media screen and (max-width: 991px){
-  .select_box{
-    select{
-      width: 290px;
-    }
-  }
-}*/
 
 .toggle_switch {
   display: inline-block;

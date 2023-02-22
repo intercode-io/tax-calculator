@@ -20,13 +20,31 @@ const formSchema = Yup.object().shape({
 
 });
 
+
+const sendMail = async (values) => {
+    await fetch('/api/send_mail', {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+}
+
 const FeedbackForm = () => {
     const formik = useFormik({
         initialValues: {
             name: '',
             phone: '',
         }, onSubmit: values => {
-            console.log(values)
+            sendMail(values)
+                .then(() => {
+                    alert("Success");
+                })
+                .catch(() => {
+                    alert("Something went wrong...")
+                })
         },
         validationSchema: formSchema,
     });
