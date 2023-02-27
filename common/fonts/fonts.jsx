@@ -10,9 +10,12 @@ const eUkraineFont = {
 
 
 const codecColdRegular = localFonts({src: './CodeCold/CodecCold-Regular.woff2'})
+const codecColdBold = localFonts({src: './CodeCold/CodecCold-Bold.woff2'})
+
 
 const codecColdFont = {
     Regular: codecColdRegular,
+    Bold: codecColdBold,
 }
 
 module.exports = {

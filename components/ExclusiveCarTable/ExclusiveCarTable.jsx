@@ -1,6 +1,6 @@
 import style from './Table.module.scss';
-import {eUkraineFont} from "../../common/fonts/fonts";
-import exclusiveCar from '../../lib/ExclusiveCar.json';
+import {codecColdFont, eUkraineFont} from "../../common/fonts/fonts";
+import exclusiveCar from '../../json/ExclusiveCar.json';
 import Image from "next/image";
 
 
@@ -32,7 +32,7 @@ export default function ExclusiveCarTable(props) {
                             <th>Тип палива</th>
                         </tr>
                         {exclusiveCar.map((item, index) => (
-                            <tr className={eUkraineFont.Regular.className} key={index}>
+                            <tr className={codecColdFont.Regular.className} key={index}>
                                 <td>{item.Label}</td>
                                 <td>{item.Model}</td>
                                 <td>{item.Year}</td>

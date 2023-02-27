@@ -10,7 +10,7 @@ import {calculatePrice} from "../../lib/calculatePrice";
 import Loader from "../Loader/Loader";
 import ExclusiveCarTable from "../ExclusiveCarTable/ExclusiveCarTable";
 
-export default function Calculator() {
+export default function Calculator({header, description}) {
     const [result, setResult] = useState(0);
     const yearOfManufacture = useInput(0);
     const volumeCar = useInput(0);
@@ -57,6 +57,7 @@ export default function Calculator() {
         loading,
     };
 
+
     const handleCalculate = async () => {
         let UAH;
         await getCurrencyData().then((res) => {
@@ -65,16 +66,16 @@ export default function Calculator() {
 
         if (data.yearOfManufacture === 0) {
             setValidateYearInput(true);
-        }
-        if (data.volumeCar === 0) {
+        } else if (data.volumeCar === 0) {
             setValidateVolumeInput(true)
-        }
-        if (typeRef.current.innerHTML === 'Оберіть зі списку') {
+        } else if (typeRef.current.innerHTML === 'Оберіть зі списку') {
             setValidateFuelInput(true);
         } else {
             loading.onChange(true);
             setValidateYearInput(false);
-            setValidateVolumeInput(true)
+            setValidateVolumeInput(false);
+            setValidateFuelInput(false);
+
 
             await setTimeout(() => {
                 setResult(calculatePrice(data).finalPrice);
@@ -143,12 +144,8 @@ export default function Calculator() {
         <div>
             {isShowTable ? <ExclusiveCarTable closeTable={showTable}/> : null}
             <div className={style.mobile_description}>
-                <h4 className={eUkraineFont.Regular.className}>Калькулятор розмитнення авто</h4>
-                <p className={codecColdFont.Regular.className}>
-                    Розрахунок вартості розмитнення автомобілів згідно закону №7418, з 1.07.2022. Формула
-                    розмитнення у
-                    відповідності до правил додатку ДІЯ.
-                </p>
+                <h4 className={eUkraineFont.Regular.className}>{header}</h4>
+                <p className={codecColdFont.Regular.className}>{description}</p>
             </div>
             <div className={style.calculator_container}>
                 <div className={style.calculator_container__description}>

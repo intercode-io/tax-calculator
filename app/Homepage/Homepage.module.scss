@@ -4,6 +4,7 @@
   display: grid;
   height: auto;
   justify-items: center;
+  min-height: 100vh;
 }
 
 .homepage_container {
@@ -17,6 +18,7 @@
 }
 
 .additional_info {
+  background: #EEF5FF;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -346,7 +348,7 @@
   }
 }
 
-/*Advantages*/
+/*AdvantagesSerction*/
 
 .advantages {
   margin-top: 104px;

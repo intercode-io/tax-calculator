@@ -62,7 +62,7 @@ export function Dropdown(props) {
                     <div className={codecColdFont.Regular.className}>
                         <img src={img} alt="icon"/>
                         {props.onChange.value === 0
-                            ? <text ref={value}>Оберіть зі списку</text>
+                            ? <p ref={value}>Оберіть зі списку</p>
                             : <p ref={value}>{props.onChange.value}</p>
                         }
                     </div>
@@ -134,7 +134,7 @@ export function DropdownType(props) {
                 >
                     <div className={codecColdFont.Regular.className}>
                         <img src={img} alt="icon"/>
-                        {text === null ? <text ref={props.refer}>Оберіть зі списку</text> :
+                        {text === null ? <p ref={props.refer}>Оберіть зі списку</p> :
                             <p ref={props.refer}>{text}</p>}
                     </div>
                     {!props.active.value

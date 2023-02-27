@@ -7,7 +7,7 @@ export default {
         type: 'website',
         locale: 'en_IE',
         url: 'https://leasing-motors.com/',
-        site_name: 'Tax Calculator',
+        site_name: 'Tax calculator',
 
     },
     twitter: {
