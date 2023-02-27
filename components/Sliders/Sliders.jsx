@@ -1,9 +1,8 @@
 import {Splide, SplideSlide} from "@splidejs/react-splide";
-import style from "../../app/pages/Homepage/Homepage.module.scss";
+import style from "../../app/Homepage/Homepage.module.scss";
 import CarCard from "../CarCard/CarCard";
-import {BMW320DCharacteristics, EGolfGTDCharacteristics, MazdaCX5Characteristics} from "../../common/cars_mockup";
 
-export const AutoSlider = () => {
+export const AutoSlider = ({car_data}) => {
     return (
         <Splide
             options={{
@@ -14,36 +13,23 @@ export const AutoSlider = () => {
             }}
             className={"auto_slider"}
         >
-            <SplideSlide>
-                <CarCard
-                    car_photo={'/Cars/MazdaCX-5.jpg'}
-                    car_name={'Mazda CX-5'}
-                    car_price={'25.000'}
-                    car_characteristics={MazdaCX5Characteristics}
-                />
-            </SplideSlide>
-            <SplideSlide>
-                <CarCard
-                    car_photo={'/Cars/VW_E-Golf_GTD.jpg'}
-                    car_name={'VW E-Golf GTD '}
-                    car_price={'25.000'}
-                    car_characteristics={EGolfGTDCharacteristics}
-                />
-            </SplideSlide>
-            <SplideSlide>
-                <CarCard
-                    car_photo={'/Cars/BMW_320d_XDrive.jpg'}
-                    car_name={'BMW 320d XDrive'}
-                    car_price={'25.000'}
-                    car_characteristics={BMW320DCharacteristics}
-                />
-            </SplideSlide>
+            {car_data.map((car) => (
+                <SplideSlide key={car?.id}>
+                    <CarCard
+                        myKey={car?.id}
+                        car_name={car?.attributes?.Auto[0]?.AutoName}
+                        car_price={car?.attributes?.Auto[0]?.CarPrice}
+                        car_photo={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${car?.attributes?.Auto[0]?.AutoImage?.data?.attributes?.url}`}
+                        car_characteristics={car?.attributes?.Auto[0]?.AutoCharacteristics}
+                    />
+                </SplideSlide>
+            ))}
         </Splide>
     )
 }
 
 
-export const FeedbackSlider = () => {
+export const FeedbackSlider = ({feedbackPhoto}) => {
     return (
         <Splide
             options={{
@@ -54,26 +40,16 @@ export const FeedbackSlider = () => {
             }}
             className={style.slider}
         >
-            <SplideSlide>
-                <img src="/FeedbackImages/1.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/2.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/3.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/4.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/5.jpg" alt="Image"/>
-            </SplideSlide>
-
+            {feedbackPhoto.map((photo) => (
+                <SplideSlide key={photo?.id}>
+                    <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${photo?.PhotoItem?.data?.attributes?.url}`}
+                         alt="photo"/>
+                </SplideSlide>
+            ))}
         </Splide>
     )
 }
-export const SmallFeedbackSlider = () => {
+export const SmallFeedbackSlider = ({feedbackPhoto}) => {
     return (
         <Splide
             options={{
@@ -84,21 +60,12 @@ export const SmallFeedbackSlider = () => {
             }}
             className={style.slider + ' ' + "feedback"}
         >
-            <SplideSlide>
-                <img src="/FeedbackImages/1.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/2.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/3.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/4.jpg" alt="Image"/>
-            </SplideSlide>
-            <SplideSlide>
-                <img src="/FeedbackImages/5.jpg" alt="Image"/>
-            </SplideSlide>
+            {feedbackPhoto.map((photo) => (
+                <SplideSlide key={photo?.id}>
+                    <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${photo?.PhotoItem?.data?.attributes?.url}`}
+                         alt="photo"/>
+                </SplideSlide>
+            ))}
 
         </Splide>
     )

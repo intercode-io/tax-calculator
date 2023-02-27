@@ -43,6 +43,8 @@
   .table {
     overflow-y: scroll;
     width: 100%;
+    border-radius: 1em;
+    background: none;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -57,13 +59,17 @@
       text-align: center;
 
       tr, th, td {
-        padding: 8px 16px;
         border-bottom: 1px #B1C0D4 solid;
       }
 
       tr th {
         position: sticky;
         top: 0;
+        height: 40px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        padding: 4px 8px;
 
         &:first-child {
           border-top-left-radius: 1em;
@@ -77,10 +83,20 @@
       }
 
       tr {
+        height: 33px;
         background: white;
 
         &:hover {
           background: #EBF3FF;
+        }
+
+        td {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 120%;
+          letter-spacing: -0.02em;
+
+          color: #465160;
         }
       }
     }
@@ -88,17 +104,25 @@
 }
 
 
+@media screen and (min-width: 1440px) {
+  .table_inner {
+    max-width: 90%;
+    max-height: 80%;
+  }
+}
 
-@media screen and (max-width: 1200px){
-  .table_inner{
+
+@media screen and (max-width: 1200px) {
+  .table_inner {
     width: calc(100% - 16px);
   }
 }
 
-@media screen and (max-width: 767px){
-  .table_inner{
+@media screen and (max-width: 767px) {
+  .table_inner {
     height: 700px;
-    &__heading{
+
+    &__heading {
       display: flex;
       align-items: flex-start;
 
@@ -110,8 +134,9 @@
         font-size: 14px;
       }
     }
-    .table{
-      table{
+
+    .table {
+      table {
         height: 500px;
       }
     }

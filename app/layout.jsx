@@ -43,9 +43,9 @@ export default function RootLayout({children}) {
             width: "100%",
         }}>
             <Navbar/>
-            <div className="contentWrapper">
+            <section className="contentWrapper">
                 {children}
-            </div>
+            </section>
         </main>
         <Footer/>
         </body>
