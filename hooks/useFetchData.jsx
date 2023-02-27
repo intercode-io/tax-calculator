@@ -1,5 +1,5 @@
 import {fetchAPI} from "../lib/fetchAPI";
-import {use} from "react";
+import {useEffect, useState} from "react";
 
 async function getData(url, populateParamsArray) {
     return await fetchAPI(url, {
@@ -11,8 +11,15 @@ async function getData(url, populateParamsArray) {
 
 
 export function useFetchData(url, populateParamsArray) {
-    const promise = getData(url, populateParamsArray);
-    const data = use(promise);
+    const [loader, setLoader] = useState(true);
+    const [finallyData, setData] = useState();
 
-    return data?.data?.attributes;
+    useEffect(() => {
+        getData(url, populateParamsArray).then((res) => {
+            setData(res?.data?.attributes);
+            setLoader(false)
+        })
+    }, [])
+
+    return {finallyData: finallyData, loader};
 }

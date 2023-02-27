@@ -2,11 +2,11 @@
 import './globals.css'
 import Navbar from "../components/Navbar/Navbar";
 import Script from "next/script";
-import Footer from "../components/Footer/Footer";
-
 
 
 export default function RootLayout({children}) {
+
+
     return (
         <html lang="en">
         <Script id="google_analytics"
@@ -37,17 +37,12 @@ export default function RootLayout({children}) {
         </Script>
         <head/>
         <body>
-        <main style={{
-            display: "grid",
-            justifyItems: 'center',
-            width: "100%",
-        }}>
-            <Navbar/>
-            <section className="contentWrapper">
+        <Navbar/>
+        <main className={"allWrapper"}>
+            <div className={"contentWrapper"}>
                 {children}
-            </section>
+            </div>
         </main>
-        <Footer/>
         </body>
         </html>
     )

@@ -134,7 +134,7 @@ export function DropdownType(props) {
                 >
                     <div className={codecColdFont.Regular.className}>
                         <img src={img} alt="icon"/>
-                        {text === null ? <text ref={props.refer}>Оберіть зі списку</text> :
+                        {text === null ? <p ref={props.refer}>Оберіть зі списку</p> :
                             <p ref={props.refer}>{text}</p>}
                     </div>
                     {!props.active.value

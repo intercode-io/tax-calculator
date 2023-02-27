@@ -9,16 +9,19 @@ import AutoCatalog from "../../components/AutoCatalogSection/AutoCatalog";
 import Advantages from "../../components/AdvantagesSerction/Advantages";
 import FeedbackSection from "../../components/FeedbackSection/FeedbackSection";
 import ConsultationBanner from "../../components/Banners/ConsultationBanner/ConsultationBanner";
+import Loader from "../../components/CircleLoader/Loader";
+import Footer from "../../components/Footer/Footer";
 
 
 export default function Homepage() {
-    const homepageData = useFetchData('/homepage', ['*']);
+    const {finallyData, loader} = useFetchData('/homepage', ['*']);
 
     return (
         <>
             <div className={style.homepage_wrapper}>
                 <div className={style.homepage_container}>
-                    <Calculator header={homepageData?.Header} description={homepageData?.Description}/>
+                    {loader ? <Loader/> :
+                        <Calculator header={finallyData?.Header} description={finallyData?.Description}/>}
                 </div>
                 <div className={style.other_sections_wrapper}>
                     <div className={style.other_section_container}>
@@ -30,6 +33,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
 
     );

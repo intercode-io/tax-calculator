@@ -4,12 +4,13 @@ import Link from "next/link";
 import {eUkraineFont} from "../../common/fonts/fonts";
 import {useState} from "react";
 import {useFetchData} from "../../hooks/useFetchData";
+import Loader from "../CircleLoader/Loader";
 
 
 export default function Navbar() {
     const [isShowMenu, setShowMenu] = useState(false);
-    const getNavbarData = useFetchData('/global', ['NavbarLinks']);
-    const navbarData = getNavbarData?.NavbarLinks;
+    const {finallyData, loader} = useFetchData('/global', ['NavbarLinks']);
+    const navbarData = finallyData?.NavbarLinks;
 
     return (
         <div className={style.navbar_container} id={"navbar"}>
@@ -19,15 +20,20 @@ export default function Navbar() {
                     <img src="/NavbarImages/logo.svg" alt="logo"/>
                 </Link>
             </div>
-            <img onClick={() => setShowMenu(!isShowMenu)} className={style.menu_button}
-                 src="/NavbarImages/open_menu.svg"
-                 alt="close_button"/>
-            <ul className={style.links_block}>
-                {navbarData?.map((link) => (
-                    <li className={eUkraineFont.Regular.className} key={link?.id}><Link
-                        href={link?.Hyperlink}>{link?.LinkName}</Link></li>
-                ))}
-            </ul>
+                {loader
+                    ? <Loader/>
+                    : <>
+                        <img onClick={() => setShowMenu(!isShowMenu)} className={style.menu_button}
+                             src="/NavbarImages/open_menu.svg"
+                             alt="close_button"/>
+                        <ul className={style.links_block}>
+                            {navbarData?.map((link) => (
+                                <li className={eUkraineFont.Regular.className} key={link?.id}><Link
+                                    href={link?.Hyperlink}>{link?.LinkName}</Link></li>
+                            ))}
+                        </ul>
+                    </>
+                }
             </span>
             {isShowMenu
                 ? <div className={style.mobile_link_block}>

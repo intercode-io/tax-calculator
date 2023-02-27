@@ -22,6 +22,12 @@ body {
 
 }
 
+
+.allWrapper{
+    display: grid;
+    justify-items: center;
+    width: 100%;
+}
 .contentWrapper {
     width: 100%;
     display: flex;
