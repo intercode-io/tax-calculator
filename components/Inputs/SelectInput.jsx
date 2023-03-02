@@ -3,6 +3,7 @@ import style from './Inputs.module.scss';
 import {codecColdFont} from "../../common/fonts/fonts";
 import {useEffect, useRef, useState} from "react";
 import {useOutsideClick} from "../../hooks/useOutsideClick";
+import IMask from 'imask';
 
 const engineTypes = [
     {
@@ -197,9 +198,10 @@ export function Input(props) {
             <input type="text"
                    value={props.value}
                    onChange={props.handleChange}
-                   placeholder={'Введіть ім’я'}
+                   placeholder={props.placeholder}
                    name={props.name}
                    className={codecColdFont.Regular.className}
+                   id={props.myId}
             />
         </div>
     )

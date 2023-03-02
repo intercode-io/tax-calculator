@@ -35,6 +35,9 @@ export default function RootLayout({children}) {
                 })(window,document,'script','dataLayer','GTM-WDVJGHD')`
             }
         </Script>
+        <Script strategy={"lazyOnload"} src={"https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js"}
+                data-autoinit="true"/>
+
         <head/>
         <body>
         <Navbar/>
