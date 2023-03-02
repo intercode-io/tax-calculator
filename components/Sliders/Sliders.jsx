@@ -54,7 +54,7 @@ export const SmallFeedbackSlider = ({feedbackPhoto}) => {
         <Splide
             options={{
                 rewind: true,
-                width: 345,
+                width: 350,
                 perPage: 1,
                 arrows: false
             }}
