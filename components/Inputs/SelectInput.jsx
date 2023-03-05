@@ -206,3 +206,18 @@ export function Input(props) {
         </div>
     )
 }
+
+
+export function TextAreaInput(props) {
+    return (
+        <div>
+        <textarea value={props.value}
+                  onChange={props.handleChange}
+                  placeholder={props.placeholder}
+                  name={props.name}
+                  className={codecColdFont.Regular.className + " " + style.textarea}
+                  id={props.myId}
+        />
+        </div>
+    )
+}

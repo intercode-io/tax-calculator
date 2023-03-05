@@ -1,0 +1,16 @@
+.faq_section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: white;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.section_inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

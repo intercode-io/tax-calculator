@@ -206,3 +206,23 @@ input:checked + .toggle_switch_label .toggle_switch_switch {
     max-height: 24px;
   }
 }
+
+
+
+/*textarea*/
+
+
+.textarea{
+  width: 99%;
+  max-width: calc(100% - 32px);
+  resize: none;
+  background: #FFFFFF;
+  border: 1px solid #B1C0D4;
+  border-radius: 20px;
+
+  min-height: 130px;
+  padding: 16px;
+  letter-spacing: 0.1em;
+  outline: none;
+  margin-top: 16px;
+}
