@@ -36,7 +36,7 @@ export const ContactForm = () => {
     });
     return (
         <form onSubmit={formik.handleSubmit} className={style.form}>
-            <h3 className={eUkraineFont.Regular.className}>Зв'яжіться з нами</h3>
+            <h3 className={eUkraineFont.Regular.className}>Зв&#39;яжіться з нами</h3>
             <p className={codecColdFont.Regular.className}>Ми залюбки проконсультуємо вас, абo відповімо на ваші
                 питання</p>
             <div className={style.form__input_container}>
