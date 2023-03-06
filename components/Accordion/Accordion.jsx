@@ -12,6 +12,7 @@ function Accordion({questionsAnswers}) {
         const ariaExpanded = index === activeIndex ? "true" : "false";
         return (
             <AccordionItem
+                key={index}
                 showDescription={showDescription}
                 fontWeightBold={fontWeightBold}
                 ariaExpanded={ariaExpanded}

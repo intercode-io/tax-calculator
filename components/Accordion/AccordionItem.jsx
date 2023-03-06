@@ -2,7 +2,7 @@ import React from "react";
 import {codecColdFont, eUkraineFont} from "../../common/fonts/fonts";
 
 const AccordionItem = ({showDescription, ariaExpanded, fontWeightBold, item, index, onClick}) => (
-    <div className="faq__question" key={item.question}>
+    <div className="faq__question" key={index}>
         <dt>
             <button aria-expanded={ariaExpanded}
                     aria-controls={`faq${index + 1}_desc`}
