@@ -1,5 +1,5 @@
 'use client'
-import './globals.css';
+import './globals.scss';
 import Homepage from "./Homepage/page";
 import {useFetchData} from "../hooks/useFetchData";
 import Loader from "../components/CircleLoader/Loader";

@@ -6,11 +6,163 @@
   height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 70vh;
 }
 
 .section_inner {
+  margin-top: 64px;
   max-width: 1200px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-bottom: 50px;
 }
+
+.form {
+  margin-top: 64px;
+  max-width: 400px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 24px 32px 32px;
+  max-height: 700px;
+
+
+  .social_block_container {
+    text-align: center;
+    width: 100%;
+    margin-top: 32px;
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+    }
+
+    .social_block {
+      display: flex !important;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  h6 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #082341;
+  }
+
+  &__input_container {
+    margin-bottom: 16px;
+
+    label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.02em;
+      color: #000000;
+    }
+
+    input {
+      font-size: 14px;
+    }
+  }
+
+  &__error {
+    color: #FF7575;
+  }
+
+  .button_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 250px;
+    }
+  }
+}
+
+.content {
+  h5 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  &__contacts {
+    a {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #5B7BA5;
+      text-decoration: none;
+
+    }
+
+    div {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+  }
+
+
+}
+
+
+@media screen and (max-width: 1200px) {
+  .section_inner {
+    padding: 0 16px;
+  }
+}
+
+
+@media screen and (max-width: 1090px) {
+  .faq_section {
+    min-height: 0;
+  }
+  .section_inner {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    text-align: center;
+
+    &__contacts {
+      div {
+        justify-content: center;
+      }
+    }
+  }
+  .form {
+    padding: 0 16px;
+
+    h3 {
+      text-align: center;
+      white-space: nowrap;
+      font-size: 32px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}
+
