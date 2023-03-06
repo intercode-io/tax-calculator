@@ -190,7 +190,6 @@ export function ToggleSwitch(props) {
     );
 }
 
-
 export function Input(props) {
     return (
         <div className={style.defaultInput}>
@@ -206,7 +205,6 @@ export function Input(props) {
         </div>
     )
 }
-
 
 export function TextAreaInput(props) {
     return (
